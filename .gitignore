@@ -1,0 +1,25 @@
+﻿.next/
+node_modules/
+out/
+.agents/
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+*.log
+*.tsbuildinfo
+Thumbs.db
+.DS_Store
+
+
+Back Massage Gun-主图/
+Back Massage Gun-详情页/
+RecoveryAir Calf Pro 主图/
+RecoveryAir Calf Pro 详情页/
+RecoveryAir Leg Elite-主图/
+RecoveryAir Leg Elite-详情页/
+RelaxiWave Eye Mask-主图/
+RelaxiWave Eye Mask-详情页/
