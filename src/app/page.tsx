@@ -5,8 +5,6 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { products } from "@/data/products";
 import { trustPolicies } from "@/data/policies";
 
-const heroProduct = products.find((product) => product.slug === "recoveryair-calf-pro") ?? products[0];
-const heroImage = heroProduct.images.find((image) => image.src.includes("main-06")) ?? heroProduct.images[0];
 
 const painSolutions = [
   {
@@ -45,13 +43,15 @@ export default function HomePage() {
   return (
     <main className="bg-[#f7f7f4] text-monauro-ink">
       <section className="relative min-h-[calc(100dvh-96px)] overflow-hidden border-b border-black/10 bg-[#7f828c] text-white">
-        <Image
-          className="object-cover object-center opacity-72"
-          src={heroImage.src}
-          alt={heroImage.alt}
-          fill
-          priority
-          sizes="100vw"
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-80"
+          src="/videos/home-hero-01.mp4"
+          poster="/images/products/recoveryair-calf-pro/mc06-refresh/mc06-hero-01.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label="MONAURO recovery device in use"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/42 via-black/16 to-white/8" />
         <div className="absolute inset-x-0 bottom-0 page-shell pb-10 md:pb-14">
