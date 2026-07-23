@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Product, ProductImage } from "@/types/product";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 import { ProductCard } from "@/components/commerce/product-card";
+import { AutoSwapImage } from "@/components/ui/auto-swap-image";
 import { ProductMediaGallery } from "@/components/commerce/product-media-gallery";
 import { ProductPurchasePanel } from "@/components/commerce/product-purchase-panel";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -53,17 +54,17 @@ const protocolSteps = [
   {
     title: "Relax",
     description: "Fasten the device comfortably and start with the lower intensity routine for daily relaxation.",
-    image: `${assetBase}/mc06-routine-01.png`
+    images: [`${assetBase}/mc06-routine-relax-01.png`, `${assetBase}/mc06-routine-relax-02.png`]
   },
   {
     title: "Activate",
     description: "Use rhythmic air compression and heated surface support to make the session feel clear and structured.",
-    image: `${assetBase}/mc06-routine-02.png`
+    images: [`${assetBase}/mc06-routine-activate-01.png`, `${assetBase}/mc06-routine-activate-02.png`]
   },
   {
     title: "Realign",
     description: "Let the 15-minute auto-off close the session, then remove the device and return to movement.",
-    image: `${assetBase}/mc06-routine-03.png`
+    images: [`${assetBase}/mc06-routine-realign-01.png`, `${assetBase}/mc06-routine-realign-02.png`]
   }
 ];
 
@@ -194,7 +195,7 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
           <div className="mx-auto grid max-w-[1360px] gap-5 md:grid-cols-3">
             {protocolSteps.map((step, index) => (
               <article className="group relative aspect-[4/5] overflow-hidden rounded-monauro bg-[#f7f7f4]" key={step.title}>
-                <Image className="object-contain transition duration-500 group-hover:scale-[1.02]" src={step.image} alt={`RecoveryAir Calf Pro ${step.title} routine`} fill sizes="(min-width: 1024px) 32vw, 100vw" />
+                <AutoSwapImage className="object-contain transition-transform duration-500 group-hover:scale-[1.02]" images={step.images} alt={`RecoveryAir Calf Pro ${step.title} routine`} sizes="(min-width: 1024px) 32vw, 100vw" />
                 <details className="group/detail absolute inset-x-4 bottom-4 rounded-monauro border border-black/10 bg-white/96 p-5 text-black shadow-md transition duration-300 open:bg-white">
                   <summary className="flex cursor-pointer list-none items-end justify-between gap-4 [&::-webkit-details-marker]:hidden">
                     <span>
