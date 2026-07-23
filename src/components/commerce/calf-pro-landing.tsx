@@ -219,10 +219,10 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
             <div className="relative aspect-[12/5] bg-[#e9e9e5]">
               <Image className="object-contain" src={featureBanners[0].src} alt={featureBanners[0].alt} fill sizes="100vw" />
             </div>
-            <div className="mx-auto -mt-10 max-w-4xl rounded-monauro border border-black/10 bg-white/92 p-6 text-center backdrop-blur lg:-mt-16 lg:p-8">
-              <p className="text-sm font-bold uppercase text-monauro-orange">Simple science</p>
-              <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Powered by rhythmic compression, heat, and short routines.</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-neutral-600">
+            <div className="mx-auto -mt-8 max-w-5xl rounded-monauro border border-black/10 bg-white/96 p-5 text-center shadow-sm lg:-mt-12 lg:p-6">
+              <p className="text-xs font-bold uppercase tracking-wide text-monauro-orange">Simple science</p>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight md:text-4xl">Powered by rhythmic compression, heat, and short routines.</h2>
+              <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-neutral-600">
                 The confirmed mechanism is rhythmic air compression, two massage modes, {"42\u2103 / 45\u2103"} heated surface support, and a 15-minute auto-off session.
               </p>
             </div>
