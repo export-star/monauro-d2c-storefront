@@ -42,7 +42,7 @@ function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title:
 export default function HomePage() {
   return (
     <main className="bg-[#f7f7f4] text-monauro-ink">
-      <section className="relative min-h-[calc(100dvh-96px)] overflow-hidden border-b border-black/10 bg-[#7f828c] text-white">
+      <section className="relative min-h-[62dvh] overflow-hidden border-b border-black/10 bg-[#7f828c] text-white md:min-h-[72dvh]">
         <video
           className="absolute inset-0 h-full w-full object-cover opacity-80"
           src="/videos/home-hero-01.mp4"

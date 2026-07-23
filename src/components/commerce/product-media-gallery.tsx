@@ -60,7 +60,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
       <button
         aria-label={`Open enlarged view of ${activeImage.alt}`}
         className={`relative overflow-hidden rounded-monauro border border-black/10 bg-[#f3f3ef] text-left ${
-          isHero ? "min-h-[56dvh] lg:min-h-[68dvh]" : "min-h-[360px] lg:min-h-[560px]"
+          isHero ? "min-h-[48dvh] max-h-[620px] lg:min-h-[58dvh]" : "min-h-[360px] lg:min-h-[560px]"
         }`}
         onClick={() => setIsZoomOpen(true)}
         type="button"
@@ -69,7 +69,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
           <video
             aria-label={activeImage.alt}
             autoPlay
-            className="h-full min-h-[360px] w-full object-contain p-4 lg:min-h-[560px]"
+            className="h-full min-h-[48dvh] max-h-[620px] w-full object-contain p-4 lg:min-h-[58dvh]"
             loop
             muted
             playsInline
