@@ -77,7 +77,7 @@ const sciencePoints = [
   ["Air-compression zones", "Three groups of six massage heads inflate and deflate rhythmically."],
   ["Two massage modes", "Level 1 Relax massage and Level 2 Deep massage are confirmed in the manual."],
   ["Session guardrail", "Auto-off after 15 minutes helps keep the routine short and repeatable."],
-  ["Two heat levels", "The confirmed heat settings are 42℃ and 45℃."],
+  ["Two heat levels", "The confirmed heat settings are 42\u2103 and 45\u2103."],
   ["Cordless routine", "A 2000mAh battery and Type-C charging support home, desk, and travel use."]
 ];
 
@@ -139,7 +139,7 @@ const technicalSpecLabels = [
 const statHighlights = [
   ["15", "min auto-off"],
   ["2", "massage modes"],
-  ["42℃ / 45℃", "heat levels"],
+  ["42\u2103 / 45\u2103", "heat levels"],
   ["100 KPa", "manual-stated pressure"]
 ];
 
@@ -155,7 +155,7 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
                 <Tag tone="green">RecoveryAir Calf Pro / MC06</Tag>
                 <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.02] md:text-6xl">The 15-minute calf reset.</h1>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-700">
-                  Rhythmic air compression, 42℃ / 45℃ heated surface support, and a short auto-off routine for heavy, tight calves.
+                  Rhythmic air compression, {"42\u2103 / 45\u2103"} heated surface support, and a short auto-off routine for heavy, tight calves.
                 </p>
               </div>
               <div id="buy-panel">
@@ -195,11 +195,18 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
             {protocolSteps.map((step, index) => (
               <article className="group relative min-h-[520px] overflow-hidden rounded-monauro bg-[#f7f7f4]" key={step.title}>
                 <Image className="object-cover transition duration-500 group-hover:scale-[1.03]" src={step.image} alt={`RecoveryAir Calf Pro ${step.title} routine`} fill sizes="(min-width: 1024px) 30vw, 100vw" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 to-transparent p-6 text-white">
-                  <p className="text-xs font-semibold uppercase text-white/70">0{index + 1} / routine</p>
-                  <h3 className="mt-3 text-2xl font-semibold">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/78">{step.description}</p>
-                </div>
+                <details className="group/detail absolute inset-x-4 bottom-4 rounded-monauro bg-white/84 p-5 text-black shadow-sm backdrop-blur transition duration-300 open:bg-white/94">
+                  <summary className="flex cursor-pointer list-none items-end justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                    <span>
+                      <span className="text-xs font-semibold uppercase text-black/55">0{index + 1} / routine</span>
+                      <span className="mt-2 block text-2xl font-semibold leading-tight text-black">{step.title}</span>
+                    </span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/20 text-lg leading-none text-black transition duration-300 group-open/detail:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 border-t border-black/10 pt-4 text-sm leading-6 text-black/72">{step.description}</p>
+                </details>
               </article>
             ))}
           </div>
@@ -216,7 +223,7 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
               <p className="text-sm font-bold uppercase text-monauro-orange">Simple science</p>
               <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Powered by rhythmic compression, heat, and short routines.</h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-neutral-600">
-                The confirmed mechanism is rhythmic air compression, two massage modes, 42℃ / 45℃ heated surface support, and a 15-minute auto-off session.
+                The confirmed mechanism is rhythmic air compression, two massage modes, {"42\u2103 / 45\u2103"} heated surface support, and a 15-minute auto-off session.
               </p>
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 px-6 py-12 text-center sm:grid-cols-4">
