@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -24,8 +25,16 @@ export function SiteHeader() {
         Free shipping to Europe, the United States, and Southeast Asia. 30-day returns and 365-day warranty.
       </div>
       <div className="flex page-shell items-center justify-between gap-5 py-4">
-        <Link className="shrink-0 text-lg font-black tracking-normal" href="/">
-          MONAURO
+        <Link className="flex shrink-0 items-center gap-2" href="/" aria-label="MONAURO home">
+          <Image
+            className="h-8 w-8 rounded-full object-contain"
+            src="/images/brand/monauro-logo-mark.png"
+            alt=""
+            width={32}
+            height={32}
+            priority
+          />
+          <span className="text-lg font-black tracking-normal">MONAURO</span>
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-5 text-sm font-medium text-neutral-700 lg:flex" aria-label="Main navigation">
