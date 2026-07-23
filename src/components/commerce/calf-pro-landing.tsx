@@ -191,10 +191,10 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
 
       <section className="bg-white py-16">
         <div className="page-shell">
-          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+          <div className="mx-auto grid max-w-[1360px] gap-5 md:grid-cols-3">
             {protocolSteps.map((step, index) => (
               <article className="group relative aspect-[4/5] overflow-hidden rounded-monauro bg-[#f7f7f4]" key={step.title}>
-                <Image className="object-contain transition duration-500 group-hover:scale-[1.02]" src={step.image} alt={`RecoveryAir Calf Pro ${step.title} routine`} fill sizes="(min-width: 1024px) 28vw, 100vw" />
+                <Image className="object-contain transition duration-500 group-hover:scale-[1.02]" src={step.image} alt={`RecoveryAir Calf Pro ${step.title} routine`} fill sizes="(min-width: 1024px) 32vw, 100vw" />
                 <details className="group/detail absolute inset-x-4 bottom-4 rounded-monauro bg-white/84 p-5 text-black shadow-sm backdrop-blur transition duration-300 open:bg-white/94">
                   <summary className="flex cursor-pointer list-none items-end justify-between gap-4 [&::-webkit-details-marker]:hidden">
                     <span>
@@ -268,10 +268,10 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
             title="Mode, heat, battery, and travel details in one visual flow."
             description="These product visuals use the supplied MC06 material. Any copy that conflicts with the confirmed manual should be corrected in the source image before production launch."
           />
-          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+          <div className="mx-auto grid max-w-[1360px] gap-5 md:grid-cols-3">
             {moreSellingImages.map((image) => (
               <figure className="relative aspect-[4/5] overflow-hidden rounded-monauro bg-white" key={image.src}>
-                <Image className="object-contain" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 28vw, 100vw" />
+                <Image className="object-contain" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 32vw, 100vw" />
               </figure>
             ))}
           </div>
