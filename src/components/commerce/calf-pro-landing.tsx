@@ -146,20 +146,20 @@ const statHighlights = [
 export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps) {
   return (
     <main>
-      <section className="min-h-[100dvh] bg-[#f7f7f4]">
-        <div className="w-full px-0 pb-8 pt-0 lg:pb-10">
-          <div className="relative overflow-hidden bg-white">
-            <ProductMediaGallery images={heroMedia} priority showThumbnails={false} variant="hero" />
-            <div className="grid gap-5 border-y border-black/10 bg-white/94 p-5 backdrop-blur lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:p-7 xl:px-12">
+      <section className="bg-[#f7f7f4]">
+        <div className="relative overflow-hidden bg-white">
+          <ProductMediaGallery images={heroMedia} priority showThumbnails={false} variant="hero" />
+          <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-6">
+            <div className="mx-auto grid max-w-[calc(100vw-2rem)] gap-5 rounded-monauro border border-white/35 bg-white/72 p-5 shadow-2xl backdrop-blur-xl lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:p-6">
               <div>
                 <Tag tone="green">RecoveryAir Calf Pro / MC06</Tag>
-                <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.02] md:text-6xl">The 15-minute calf reset.</h1>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-700">
+                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.02] text-monauro-ink md:text-5xl">The 15-minute calf reset.</h1>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-700 md:text-base">
                   Rhythmic air compression, {"42\u2103 / 45\u2103"} heated surface support, and a short auto-off routine for heavy, tight calves.
                 </p>
               </div>
               <div id="buy-panel">
-                <ProductPurchasePanel product={product} />
+                <ProductPurchasePanel product={product} variant="overlay" />
               </div>
             </div>
           </div>

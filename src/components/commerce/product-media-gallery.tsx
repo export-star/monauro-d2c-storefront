@@ -56,11 +56,11 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
   }
 
   return (
-    <div className="grid gap-4">
+    <div className={isHero ? "grid" : "grid gap-4"}>
       <button
         aria-label={`Open enlarged view of ${activeImage.alt}`}
-        className={`relative overflow-hidden rounded-monauro border border-black/10 bg-[#f3f3ef] text-left ${
-          isHero ? "min-h-[56dvh] lg:min-h-[68dvh]" : "min-h-[360px] lg:min-h-[560px]"
+        className={`relative overflow-hidden text-left ${
+          isHero ? "min-h-[calc(100dvh-96px)] rounded-none border-0 bg-black" : "min-h-[360px] rounded-monauro border border-black/10 bg-[#f3f3ef] lg:min-h-[560px]"
         }`}
         onClick={() => setIsZoomOpen(true)}
         type="button"
@@ -69,7 +69,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
           <video
             aria-label={activeImage.alt}
             autoPlay
-            className="h-full min-h-[360px] w-full object-contain p-4 lg:min-h-[560px]"
+            className={isHero ? "h-[calc(100dvh-96px)] min-h-[640px] w-full object-cover" : "h-full min-h-[360px] w-full object-contain p-4 lg:min-h-[560px]"}
             loop
             muted
             playsInline
@@ -77,7 +77,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
           />
         ) : (
           <Image
-            className={`object-contain ${isHero ? "p-3 lg:p-5" : "p-4"}`}
+            className={isHero ? "object-cover" : "object-contain p-4"}
             src={activeImage.src}
             alt={activeImage.alt}
             fill
@@ -109,9 +109,11 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
             </span>
           </>
         ) : null}
-        <span className="absolute bottom-4 right-4 rounded-full bg-white/90 px-3 py-2 text-xs font-semibold text-monauro-ink shadow-sm">
-          Click to enlarge
-        </span>
+        {!isHero ? (
+          <span className="absolute bottom-4 right-4 rounded-full bg-white/90 px-3 py-2 text-xs font-semibold text-monauro-ink shadow-sm">
+            Click to enlarge
+          </span>
+        ) : null}
       </button>
 
       {showThumbnails ? (
