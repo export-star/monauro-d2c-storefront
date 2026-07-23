@@ -146,7 +146,7 @@ const statHighlights = [
 export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps) {
   return (
     <main>
-      <section className="bg-[#f7f7f4]">
+      <section className="min-h-[100dvh] bg-[#f7f7f4]">
         <div className="w-full px-0 pb-8 pt-0 lg:pb-10">
           <div className="relative overflow-hidden bg-white">
             <ProductMediaGallery images={heroMedia} priority showThumbnails={false} variant="hero" />
