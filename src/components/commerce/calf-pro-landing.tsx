@@ -216,8 +216,8 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
       <section className="bg-[#f7f7f4] py-16 lg:py-20" id="simple-science">
         <div className="page-shell">
           <div className="relative overflow-hidden rounded-monauro bg-white">
-            <div className="relative min-h-[300px] bg-[#e9e9e5] lg:min-h-[420px]">
-              <Image className="object-cover" src={featureBanners[0].src} alt={featureBanners[0].alt} fill sizes="100vw" />
+            <div className="relative aspect-[12/5] bg-[#e9e9e5]">
+              <Image className="object-contain" src={featureBanners[0].src} alt={featureBanners[0].alt} fill sizes="100vw" />
             </div>
             <div className="mx-auto -mt-10 max-w-4xl rounded-monauro border border-black/10 bg-white/92 p-6 text-center backdrop-blur lg:-mt-16 lg:p-8">
               <p className="text-sm font-bold uppercase text-monauro-orange">Simple science</p>
