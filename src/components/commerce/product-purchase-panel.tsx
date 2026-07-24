@@ -50,8 +50,8 @@ export function ProductPurchasePanel({ product, variant = "default" }: ProductPu
 
     if (variantId) {
       const cartUrl = new URL(`https://monauro.com/cart/${variantId}:${quantity}`);
-      if (action === "buy") {
-        cartUrl.searchParams.set("checkout", "1");
+      if (action === "cart") {
+        cartUrl.searchParams.set("storefront", "true");
       }
       window.location.href = cartUrl.toString();
       return;
