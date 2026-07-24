@@ -1453,3 +1453,8 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   .cart-trust { grid-template-columns: 1fr; }
   .search-form { grid-template-columns: 1fr; }
 }
+.product-showcase__asset--cover {
+  object-fit: cover;
+  object-position: center;
+  background: #f4f4f1;
+}

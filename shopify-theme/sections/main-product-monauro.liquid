@@ -45,7 +45,7 @@
     {% assign slide_index = 0 %}
     {% if hero_video != blank %}
       <div class="product-showcase__slide is-active" data-slide data-slide-index="{{ slide_index }}">
-        <video class="product-showcase__asset" autoplay loop muted playsinline preload="metadata" aria-label="{{ product.title | escape }} product video">
+        <video class="product-showcase__asset product-showcase__asset--cover" autoplay loop muted playsinline preload="metadata" poster="{{ hero_image_list.first | asset_url }}" aria-label="{{ product.title | escape }} product video">
           <source src="{{ hero_video | asset_url }}" type="video/mp4">
         </video>
       </div>
@@ -54,7 +54,7 @@
 
     {% for image_name in hero_image_list %}
       <button class="product-showcase__slide{% if hero_video == blank and forloop.first %} is-active{% endif %}" type="button" data-slide data-slide-index="{{ slide_index }}" data-zoom-source="{{ image_name | asset_url }}" aria-label="Open {{ product.title | escape }} image {{ forloop.index }}">
-        <img class="product-showcase__asset product-showcase__asset--contain" src="{{ image_name | asset_url }}" alt="{{ product.title | escape }} product view {{ forloop.index }}" width="1800" height="1013" {% unless forloop.first and hero_video == blank %}loading="lazy"{% endunless %}>
+        <img class="product-showcase__asset product-showcase__asset--cover" src="{{ image_name | asset_url }}" alt="{{ product.title | escape }} product view {{ forloop.index }}" width="1800" height="1013" {% unless forloop.first and hero_video == blank %}loading="lazy"{% endunless %}>
       </button>
       {% assign slide_index = slide_index | plus: 1 %}
     {% endfor %}
