@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
@@ -15,6 +15,6 @@
       {{ content_for_layout }}
     </main>
     {% section 'monauro-footer' %}
-    {{ 'monauro-theme.js' | asset_url | script_tag }}
+    <script src="{{ 'monauro-theme.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

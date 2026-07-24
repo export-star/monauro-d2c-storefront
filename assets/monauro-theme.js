@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   document.querySelectorAll('[data-menu-toggle]').forEach((button) => {
     button.addEventListener('click', () => {
       const nav = document.querySelector('[data-header-nav]');
