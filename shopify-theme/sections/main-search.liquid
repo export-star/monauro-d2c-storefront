@@ -1,4 +1,66 @@
-<section class="section"><div class="section-header"><h1>Search</h1></div><form action="{{ routes.search_url }}" method="get" role="search" class="search-form"><input class="variant-select" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search MONAURO"><button class="btn btn-primary" type="submit">Search</button></form>{% if search.performed %}<div class="product-grid search-results">{% for item in search.results %}<a class="product-card" href="{{ item.url }}"><div class="product-card-media">{% if item.featured_image %}{{ item.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: item.title }}{% endif %}</div><h3>{{ item.title }}</h3></a>{% endfor %}</div>{% endif %}</section>
+<main class="search-page">
+  <section class="search-intro">
+    <div class="page-shell">
+      <p class="shop-badge">Search MONAURO</p>
+      <h1>Find a device or support topic.</h1>
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products and support" aria-label="Search MONAURO">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </section>
+
+  {% if search.performed %}
+    <section class="search-content">
+      <div class="page-shell">
+        <div class="search-summary"><h2>{{ search.results_count }} results for “{{ search.terms | escape }}”</h2></div>
+        {% if search.results_count > 0 %}
+          <div class="product-grid search-results">
+            {% for item in search.results %}
+              {% liquid
+                assign mapped_image = ''
+                if item.object_type == 'product'
+                  case item.handle
+                    when 'recoveryair-calf-pro'
+                      assign mapped_image = 'home-calf-pro.png'
+                    when 'monauro-recoveryair-leg-elite'
+                      assign mapped_image = 'home-leg-elite.png'
+                    when 'relaxiwave-eye-mask'
+                      assign mapped_image = 'home-eye-mask.png'
+                    when 'back-massage-gun'
+                      assign mapped_image = 'home-back-massage-gun.png'
+                  endcase
+                endif
+              %}
+              <a class="product-card search-result-card" href="{{ item.url }}">
+                <div class="product-card-media">
+                  {% if mapped_image != blank %}
+                    <img src="{{ mapped_image | asset_url }}" alt="{{ item.title | escape }}" width="1600" height="1600" loading="lazy">
+                  {% elsif item.featured_image %}
+                    {{ item.featured_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: item.title }}
+                  {% endif %}
+                </div>
+                <p class="product-kicker">{{ item.object_type | capitalize }}</p>
+                <h3>{{ item.title }}</h3>
+                {% if item.object_type == 'product' %}<p class="search-result-card__price">{{ item.price | money }}</p>{% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="empty-state">
+            <h2>No results found.</h2>
+            <p>Try a product name, body area, or recovery routine.</p>
+            <a class="btn btn-primary" href="{{ routes.all_products_collection_url }}">Shop all devices</a>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+  {% endif %}
+</main>
+
 {% schema %}
-{ "name": "Main search" }
+{
+  "name": "Main search",
+  "settings": []
+}
 {% endschema %}

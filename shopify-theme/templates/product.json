@@ -6,10 +6,11 @@
     "logic": { "type": "product-logic-monauro" },
     "highlights": { "type": "product-highlights-monauro" },
     "gallery": { "type": "product-gallery-monauro" },
+    "comparison": { "type": "product-comparison-monauro" },
     "specs": { "type": "product-specs-monauro" },
     "trust": { "type": "monauro-trust" },
     "related": { "type": "product-related-monauro" },
     "faq": { "type": "product-faq-monauro" }
   },
-  "order": ["main", "use_cases", "routine", "logic", "highlights", "gallery", "specs", "trust", "related", "faq"]
+  "order": ["main", "use_cases", "routine", "logic", "highlights", "gallery", "comparison", "specs", "trust", "related", "faq"]
 }
