@@ -3,8 +3,8 @@ import type { NavigationItem } from "@/types/content";
 export const mainNavigation: NavigationItem[] = [
   { label: "Shop", href: "/products" },
   { label: "Recovery Solutions", href: "/recovery-solutions" },
-  { label: "Library", href: "/recovery-library" },
-  { label: "Professionals", href: "/professionals" }
+  { label: "Library", href: "/" },
+  { label: "Professionals", href: "/" }
 ];
 
 export const utilityNavigation: NavigationItem[] = [

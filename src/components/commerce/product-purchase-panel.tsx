@@ -26,8 +26,8 @@ type ShopifyCartResponse = {
 const colorSwatches: Record<string, string> = {
   "Calm Purple": "#B9A3E3",
   "Vivid Orange": "#FF8039",
-  "Pale Green": "#B9E972",
-  "Electric Green": "#2CD5C4"
+  "Pale Green": "#2CD5C4",
+  "Electric Green": "#B9E972"
 };
 
 function getColorOptions(product: Product) {
@@ -40,7 +40,7 @@ export function ProductPurchasePanel({ product, variant = "default" }: ProductPu
   const [selectedColor, setSelectedColor] = useState(colorOptions[0] ?? "Default");
   const [quantity, setQuantity] = useState(1);
   const [isTestingCart, setIsTestingCart] = useState(false);
-  const [cartMessage, setCartMessage] = useState("Shopify draft connection pending. No live checkout redirect will happen unless enabled in env.");
+  const [cartMessage, setCartMessage] = useState("Added to cart for this storefront preview. Live checkout will follow the final Shopify connection.");
 
   async function testShopifyCart(action: "cart" | "buy") {
     setIsTestingCart(true);

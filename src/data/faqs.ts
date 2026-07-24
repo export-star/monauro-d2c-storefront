@@ -3,7 +3,7 @@ import type { FaqItem } from "@/types/content";
 export const homepageFaqs: FaqItem[] = [
   {
     question: "Which MONAURO device should I start with?",
-    answer: "Start from your recovery problem first. Product recommendations are placeholders until the full product catalog is confirmed.",
+    answer: "Start from your recovery problem first. Compare by body area, routine length, and preferred comfort feature.",
     status: "to_confirm"
   },
   {
@@ -28,58 +28,143 @@ export const homepageFaqs: FaqItem[] = [
   }
 ];
 
-export const productFaqs: FaqItem[] = [
-  {
-    question: "Does this replace medical treatment?",
-    answer: "No. RecoveryAir Calf Pro is described as a home electronic wellness device, not a medical device. It is not intended for diagnosis or treatment and should not replace professional medical advice.",
-    status: "confirmed"
-  },
-  {
-    question: "How do I use RecoveryAir Calf Pro?",
-    answer: "Place the massager on your calves, secure it with the Velcro straps, adjust to a comfortable tightness, then select the massage intensity and heat setting. Remove jewelry and accessories before use, and do not operate the product with wet hands.",
-    status: "confirmed"
-  },
-  {
-    question: "Can I use it while charging?",
-    answer: "No. The manual states that the device cannot be powered on while charging.",
-    status: "confirmed"
-  },
-  {
-    question: "Is it waterproof?",
-    answer: "No. The manual states that the product is not waterproof and should not be splashed with liquid or used on wet skin.",
-    status: "confirmed"
-  },
-  {
-    question: "What is included in the box?",
-    answer: "RecoveryAir Calf Pro includes the main device, charging cable, user manual / warranty card, and Certificate of Conformity.",
-    status: "confirmed"
-  },
-  {
-    question: "What is the warranty policy?",
-    answer: "RecoveryAir Calf Pro has a 365-day warranty period.",
-    status: "confirmed"
-  }
-];
+export const productFaqsBySlug: Record<string, FaqItem[]> = {
+  "recoveryair-calf-pro": [
+    {
+      question: "Does this replace medical treatment?",
+      answer: "No. RecoveryAir Calf Pro is described as a home electronic wellness device, not a medical device. It is not intended for diagnosis or treatment and should not replace professional medical advice.",
+      status: "confirmed"
+    },
+    {
+      question: "How do I use RecoveryAir Calf Pro?",
+      answer: "Place the massager on your calves, secure it with the Velcro straps, adjust to a comfortable tightness, then select the massage intensity and heat setting. Remove jewelry and accessories before use, and do not operate the product with wet hands.",
+      status: "confirmed"
+    },
+    {
+      question: "Can I use it while charging?",
+      answer: "No. The manual states that the device cannot be powered on while charging.",
+      status: "confirmed"
+    },
+    {
+      question: "Is it waterproof?",
+      answer: "No. The manual states that the product is not waterproof and should not be splashed with liquid or used on wet skin.",
+      status: "confirmed"
+    },
+    {
+      question: "What is included in the box?",
+      answer: "RecoveryAir Calf Pro includes the main device, charging cable, user manual, warranty card, and Certificate of Conformity.",
+      status: "confirmed"
+    },
+    {
+      question: "What is the warranty policy?",
+      answer: "RecoveryAir Calf Pro includes a 365-day warranty period.",
+      status: "confirmed"
+    }
+  ],
+  "recoveryair-leg-elite": [
+    {
+      question: "What area is RecoveryAir Leg Elite designed for?",
+      answer: "RecoveryAir Leg Elite is positioned for leg recovery routines with EMS massage, heated comfort, and air-bag compression.",
+      status: "confirmed"
+    },
+    {
+      question: "What are the heat levels?",
+      answer: "The heat levels are low 50℃ (122°F) and high 55℃ (131°F).",
+      status: "confirmed"
+    },
+    {
+      question: "How long can it run?",
+      answer: "The maximum usage time is less than 60 minutes on the highest setting, with approximately 3 hours required for charging.",
+      status: "confirmed"
+    },
+    {
+      question: "Which colors are available?",
+      answer: "The color options are Calm Purple and Electric Green.",
+      status: "confirmed"
+    },
+    {
+      question: "What is included in the box?",
+      answer: "The package includes the main device, charging cable, user manual, and warranty card.",
+      status: "confirmed"
+    }
+  ],
+  "relaxiwave-eye-mask": [
+    {
+      question: "What is RelaxiWave Eye Mask used for?",
+      answer: "RelaxiWave Eye Mask is positioned for eye-area relaxation routines, with vibration massage, heated comfort, and built-in white noise described in the product details.",
+      status: "confirmed"
+    },
+    {
+      question: "What massage modes are available?",
+      answer: "The modes are soothing mode, vitality mode, and sleep mode.",
+      status: "confirmed"
+    },
+    {
+      question: "What are the heat levels?",
+      answer: "The heat levels are low 38℃ ±2℃ and high 42℃ ±2℃.",
+      status: "confirmed"
+    },
+    {
+      question: "How long does it charge and run?",
+      answer: "Charging time is approximately 2.5 hours, and maximum usage time is less than 75 minutes on the highest setting.",
+      status: "confirmed"
+    },
+    {
+      question: "What is included in the box?",
+      answer: "The package includes the main device, charging cable, user manual, and warranty card.",
+      status: "confirmed"
+    }
+  ],
+  "back-massage-gun": [
+    {
+      question: "What makes Back Massage Gun different?",
+      answer: "It is positioned as a full-body massage gun with a distinctive self-use back massage form, so users can massage the back without relying on another person.",
+      status: "confirmed"
+    },
+    {
+      question: "What speed levels are available?",
+      answer: "The speed levels are level 1 2000R, level 2 2600R, level 3 3200R, and level 4 800R.",
+      status: "confirmed"
+    },
+    {
+      question: "Which massage heads are included?",
+      answer: "The package includes five massage heads: ball, bullet, U-shaped, wedge, and flat.",
+      status: "confirmed"
+    },
+    {
+      question: "What are the motor and performance details?",
+      answer: "Product details include a brushless motor, 6mm amplitude, 10kg stall force, 55dB noise level, and a 15-minute smart timer.",
+      status: "confirmed"
+    },
+    {
+      question: "What is included in the box?",
+      answer: "The package includes the main device, user manual, charging cable, and warranty card.",
+      status: "confirmed"
+    }
+  ]
+};
+
+export const productFaqs: FaqItem[] = productFaqsBySlug["recoveryair-calf-pro"];
 
 export const supportFaqs: FaqItem[] = [
   {
     question: "Where does MONAURO currently ship?",
-    answer: "Free shipping is currently confirmed for Europe, the United States, and Southeast Asia.",
+    answer: "Free shipping is available for Europe, the United States, and Southeast Asia.",
     status: "confirmed"
   },
   {
     question: "How long does delivery take?",
-    answer: "The confirmed estimated delivery time is 3-10 days.",
+    answer: "Estimated delivery time is 3-10 days.",
     status: "confirmed"
   },
   {
     question: "Can I return or exchange a product?",
-    answer: "Returns and exchanges are currently confirmed within 30 days.",
+    answer: "Returns and exchanges are available within 30 days.",
     status: "confirmed"
   },
   {
     question: "How long is the warranty period?",
-    answer: "The confirmed warranty period is 365 days. Detailed claim steps and exclusions still need final production policy wording.",
+    answer: "The warranty period is 365 days. Keep your order information ready when contacting support about a warranty request.",
     status: "confirmed"
   },
   {

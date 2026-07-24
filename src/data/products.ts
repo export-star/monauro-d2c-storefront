@@ -10,7 +10,7 @@ export const products: Product[] = [
     price: "$119.99",
     priceStatus: "confirmed",
     shopifyHandle: "recoveryair-calf-pro",
-    imageAlt: "RecoveryAir Calf Pro product image placeholder",
+    imageAlt: "RecoveryAir Calf Pro product image",
     images: [
       {
         src: "/images/products/recoveryair-calf-pro/calf-pro-purple-kit.jpg",
@@ -112,7 +112,7 @@ export const products: Product[] = [
       },
       {
         title: "Heated Surface",
-        description: "Two heat settings are confirmed: 42\u2103 and 45\u2103.",
+        description: "Two heat settings are available: 42\u2103 and 45\u2103.",
         status: "confirmed"
       }
     ],
@@ -147,12 +147,17 @@ export const products: Product[] = [
     price: "$179.99",
     priceStatus: "confirmed",
     shopifyHandle: "recoveryair-leg-elite",
-    imageAlt: "RecoveryAir Leg Elite product image placeholder",
+    imageAlt: "RecoveryAir Leg Elite product image",
     images: [
+      {
+        src: "/videos/ml01-product-video.mp4",
+        alt: "RecoveryAir Leg Elite product video",
+        role: "hero"
+      },
       {
         src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-01.png",
         alt: "RecoveryAir Leg Elite hero poster 01",
-        role: "hero"
+        role: "gallery"
       },
       {
         src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-02.png",
@@ -351,6 +356,14 @@ export const products: Product[] = [
     specs: [
       { label: "SKU / Model", value: "ML01", status: "confirmed" },
       { label: "Price", value: "$179.99", status: "confirmed" },
+      { label: "Product dimensions", value: "564 x 478 x 4mm", status: "confirmed" },
+      { label: "Weight", value: "500g / 1.1lbs", status: "confirmed" },
+      { label: "Battery capacity", value: "Lithium battery 3000mAh", status: "confirmed" },
+      { label: "Battery voltage", value: "3.7V", status: "confirmed" },
+      { label: "Rated voltage / power", value: "5V / 8W", status: "confirmed" },
+      { label: "Charging time", value: "Approx. 3 hours", status: "confirmed" },
+      { label: "Maximum usage time", value: "Less than 60 minutes on highest setting", status: "confirmed" },
+      { label: "Heat levels", value: "Low 50℃ (122°F), high 55℃ (131°F)", status: "confirmed" },
       { label: "Application area", value: "Legs", status: "confirmed" },
       { label: "Core functions", value: "EMS massage, heated comfort, air-bag compression", status: "confirmed" },
       { label: "Color options", value: "Calm Purple, Electric Green", status: "confirmed" },
@@ -366,10 +379,10 @@ export const products: Product[] = [
     price: "$69.99",
     priceStatus: "confirmed",
     shopifyHandle: "relaxiwave-eye-mask",
-    imageAlt: "RelaxiWave Eye Mask product image placeholder",
+    imageAlt: "RelaxiWave Eye Mask product image",
     images: [
       {
-        src: "/videos/me01-product-hero.mp4",
+        src: "/videos/me01-product-video.mp4",
         alt: "RelaxiWave Eye Mask product video",
         role: "hero"
       },
@@ -424,11 +437,6 @@ export const products: Product[] = [
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-01.png",
-        alt: "RelaxiWave Eye Mask additional benefit visual 01",
-        role: "detail"
-      },
-      {
         src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-02.png",
         alt: "RelaxiWave Eye Mask additional benefit visual 02",
         role: "detail"
@@ -436,6 +444,11 @@ export const products: Product[] = [
       {
         src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-03.png",
         alt: "RelaxiWave Eye Mask additional benefit visual 03",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-01.png",
+        alt: "RelaxiWave Eye Mask additional benefit visual 01",
         role: "detail"
       }
     ],
@@ -460,8 +473,16 @@ export const products: Product[] = [
     specs: [
       { label: "SKU / Model", value: "ME01", status: "confirmed" },
       { label: "Price", value: "$69.99", status: "confirmed" },
+      { label: "Product dimensions", value: "Approx. 700 x 87 x 32mm", status: "confirmed" },
+      { label: "Battery capacity", value: "600mAh", status: "confirmed" },
+      { label: "Battery voltage", value: "3.7V", status: "confirmed" },
+      { label: "Rated voltage / power", value: "5V / 5W", status: "confirmed" },
+      { label: "Charging time", value: "Approx. 2.5 hours", status: "confirmed" },
+      { label: "Maximum usage time", value: "Less than 75 minutes on highest setting", status: "confirmed" },
+      { label: "Heat levels", value: "Low 38℃ ±2℃, high 42℃ ±2℃", status: "confirmed" },
+      { label: "Massage modes", value: "Soothing mode, vitality mode, sleep mode", status: "confirmed" },
+      { label: "Core functions", value: "10-point massage, targeted acupoint massage, soothing background music, smart voice prompts", status: "confirmed" },
       { label: "Application area", value: "Eyes", status: "confirmed" },
-      { label: "Core functions", value: "Vibration massage, heated eye-area comfort, built-in white noise", status: "confirmed" },
       { label: "Color options", value: "Calm Purple, Vivid Orange, Pale Green, Electric Green", status: "confirmed" },
       { label: "Package includes", value: "Main device x1, charging cable x1, user manual x1, warranty card x1", status: "confirmed" },
       { label: "Availability", value: "In stock", status: "confirmed" }
@@ -475,12 +496,17 @@ export const products: Product[] = [
     price: "$89.99",
     priceStatus: "confirmed",
     shopifyHandle: "back-massage-gun",
-    imageAlt: "Back Massage Gun product image placeholder",
+    imageAlt: "Back Massage Gun product image",
     images: [
+      {
+        src: "/videos/mg01-product-video.mp4",
+        alt: "Back Massage Gun product video",
+        role: "hero"
+      },
       {
         src: "/images/products/back-massage-gun/page-assets/mg01-hero-01.png",
         alt: "Back Massage Gun hero poster 01",
-        role: "hero"
+        role: "gallery"
       },
       {
         src: "/images/products/back-massage-gun/page-assets/mg01-hero-02.png",
@@ -667,13 +693,30 @@ export const products: Product[] = [
       },
       {
         title: "Massage Gun Functionality",
-        description: "Supports the regular function set expected from a massage gun; exact speed levels and attachment uses need manual confirmation.",
-        status: "to_confirm"
+        description: "Includes four speed levels, five massage heads, a 6mm amplitude, and a 15-minute smart timer.",
+        status: "confirmed"
       }
     ],
     specs: [
       { label: "SKU / Model", value: "MG01", status: "confirmed" },
       { label: "Price", value: "$89.99", status: "confirmed" },
+      { label: "Material", value: "ABS", status: "confirmed" },
+      { label: "Product dimensions", value: "Approx. 140 x 80 x 35mm", status: "confirmed" },
+      { label: "Handle dimensions", value: "Approx. 475 x 235 x 45mm", status: "confirmed" },
+      { label: "Weight", value: "Main device approx. 255g / 0.56lbs, handle approx. 165g / 0.36lbs", status: "confirmed" },
+      { label: "Battery capacity", value: "1000mAh", status: "confirmed" },
+      { label: "Battery voltage", value: "7.4V", status: "confirmed" },
+      { label: "Rated voltage / power", value: "5V / 20W", status: "confirmed" },
+      { label: "Charging time", value: "Approx. 2 hours", status: "confirmed" },
+      { label: "Maximum usage time", value: "Less than 75 minutes on highest setting", status: "confirmed" },
+      { label: "Single-session guidance", value: "Smart timer: 15 minutes", status: "confirmed" },
+      { label: "Motor", value: "Brushless motor", status: "confirmed" },
+      { label: "Speed levels", value: "Level 1 2000R, level 2 2600R, level 3 3200R, level 4 800R", status: "confirmed" },
+      { label: "Battery runtime", value: "Low setting unloaded: 197 minutes, high setting unloaded: 70 minutes", status: "confirmed" },
+      { label: "Amplitude", value: "6mm", status: "confirmed" },
+      { label: "Stall force", value: "10kg", status: "confirmed" },
+      { label: "Noise", value: "55dB", status: "confirmed" },
+      { label: "Massage heads", value: "5 heads: ball, bullet, U-shaped, wedge, flat", status: "confirmed" },
       { label: "Application area", value: "Full body", status: "confirmed" },
       { label: "Core functions", value: "Standard massage gun functions, with independent back massage support", status: "confirmed" },
       { label: "Color options", value: "Calm Purple, Vivid Orange, Pale Green, Electric Green", status: "confirmed" },

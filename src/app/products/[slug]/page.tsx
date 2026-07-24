@@ -1,4 +1,4 @@
-﻿import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import { CalfProLanding } from "@/components/commerce/calf-pro-landing";
 import { ProductLongLanding, type ProductLongPageCopy } from "@/components/commerce/product-long-landing";
 import { getProductBySlug, products } from "@/data/products";
@@ -29,53 +29,53 @@ const productPageCopy: Record<string, ProductLongPageCopy> = {
   },
   "recoveryair-leg-elite": {
     outcomeTitle: "A broader leg routine for travel, training, and long days.",
-    outcomeDescription: "EMS massage, heat, and air-bag compression are confirmed. Exact intensity levels, timing, sizing, and battery claims remain pending until the manual is supplied.",
+    outcomeDescription: "EMS massage, heated comfort, and air-bag compression support broader leg recovery routines after travel, training, or long days.",
     outcomes: [
       ["Full-Leg Recovery", "For users who want a broader leg routine than a calf-only device."],
       ["Travel Recovery", "For post-travel leg heaviness and long days away from a normal recovery setup."],
       ["At-Home Reset", "For a more settled recovery session at home after work or activity."],
-      ["Giftable Wellness", "For a premium recovery-device presentation once packaging and bundle details are confirmed."]
+      ["Giftable Wellness", "For shoppers comparing a broader leg device within the MONAURO recovery line."]
     ],
     routineTitle: "Wrap. Choose. Recover.",
-    routineDescription: "A full-leg routine concept based on confirmed core functions, with exact operating instructions pending manual confirmation.",
+    routineDescription: "A simple full-leg routine built around comfortable placement, heat, EMS massage, and air-bag compression support.",
     routineSteps: [
-      ["Wrap", "Position the device for a comfortable full-leg session according to the final user manual."],
-      ["Choose", "Select the appropriate mode only after mode names, intensity levels, and indicators are confirmed."],
-      ["Recover", "Keep session language conservative until timing and safety guidance are verified."]
+      ["Wrap", "Position the device for a comfortable full-leg session."],
+      ["Choose", "Choose the routine that fits the recovery moment."],
+      ["Recover", "Complete a focused leg-care session and return to movement."]
     ]
   },
   "relaxiwave-eye-mask": {
     outcomeTitle: "A calm routine for screen-heavy days and evening decompression.",
-    outcomeDescription: "The confirmed feature set includes vibration massage, heated comfort, built-in white noise, and a 15-minute soothing massage routine.",
+    outcomeDescription: "Vibration massage, heated comfort, built-in white noise, and a 15-minute soothing routine support eye-area relaxation after screen-heavy days.",
     outcomes: [
       ["Digital Eye Strain", "For users who want a quieter recovery ritual after long screen time."],
       ["Desk Fatigue", "For workdays when eyes and attention feel tired."],
       ["Evening Wind-Down", "For a lower-stimulation routine before rest."],
-      ["Travel Rest", "For portable comfort moments during trips, once charging and portability details are confirmed."]
+      ["Travel Rest", "For portable comfort moments during trips or long workdays."]
     ],
     routineTitle: "Settle. Cover. Reset.",
-    routineDescription: "A simple relaxation story that can be refined once exact heat levels, battery details, and safety guidance are confirmed.",
+    routineDescription: "A simple relaxation routine built around a quiet moment, gentle coverage, and short-session comfort.",
     routineSteps: [
       ["Settle", "Create a quiet moment after screens, work, or travel."],
-      ["Cover", "Use the eye mask as directed by the final manual and avoid claims beyond relaxation support."],
+      ["Cover", "Place the eye mask comfortably and start a soothing eye-area routine."],
       ["Reset", "Return to the day with a short, repeatable wellness ritual."]
     ]
   },
   "back-massage-gun": {
     outcomeTitle: "Focused body relaxation for workdays and post-workout routines.",
-    outcomeDescription: "The independent back massage concept is confirmed. Speed levels, attachment uses, and detailed safety guidance still need the product manual.",
+    outcomeDescription: "Independent back massage support, four speed levels, and five massage heads help users build a focused full-body relaxation routine.",
     outcomes: [
       ["Back Tension", "For users who want focused relaxation around the back after long workdays."],
       ["Desk Fatigue", "For simple body-care routines around sedentary work."],
       ["Post-Workout Recovery", "For a targeted relaxation step after training, without medical or performance guarantees."],
-      ["Attachment-Based Focus", "Product visuals show multiple heads; exact attachment names and use cases need confirmation."]
+      ["Attachment-Based Focus", "Five included massage heads support different body-care routines."]
     ],
     routineTitle: "Target. Attach. Ease.",
-    routineDescription: "A focused body routine concept that should be finalized after speed levels and attachment instructions are supplied.",
+    routineDescription: "A focused body routine built around reach, attachment choice, and controlled massage intensity.",
     routineSteps: [
-      ["Target", "Choose the body area according to the final safety instructions."],
-      ["Attach", "Select the right attachment only after attachment names and intended uses are confirmed."],
-      ["Ease", "Use conservative timing and pressure guidance until the product manual is provided."]
+      ["Target", "Choose the body area that needs focused relaxation."],
+      ["Attach", "Select one of the included massage heads for the routine."],
+      ["Ease", "Use a controlled pace and let the 15-minute smart timer keep the session structured."]
     ]
   }
 };

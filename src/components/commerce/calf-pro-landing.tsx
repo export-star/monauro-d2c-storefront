@@ -76,9 +76,9 @@ const painPoints = [
 
 const sciencePoints = [
   ["Air-compression zones", "Three groups of six massage heads inflate and deflate rhythmically."],
-  ["Two massage modes", "Level 1 Relax massage and Level 2 Deep massage are confirmed in the manual."],
+  ["Two massage modes", "Level 1 Relax massage and Level 2 Deep massage give the routine a simple low-to-deep structure."],
   ["Session guardrail", "Auto-off after 15 minutes helps keep the routine short and repeatable."],
-  ["Two heat levels", "The confirmed heat settings are 42\u2103 and 45\u2103."],
+  ["Two heat levels", "The heat settings are 42\u2103 and 45\u2103."],
   ["Cordless routine", "A 2000mAh battery and Type-C charging support home, desk, and travel use."]
 ];
 
@@ -87,7 +87,7 @@ const comparisonRows = [
   ["Contact pattern", "Broad pressure around the limb", "Three air-compression groups that inflate and deflate in sequence"],
   ["Use experience", "Often feels like a blood-pressure cuff", "Designed as a warmer, more intentional calf reset routine"],
   ["Portability", "Varies by device", "Approx. 500g with Type-C charging"],
-  ["Claim boundary", "Often overpromises pain relief", "Uses confirmed specs and avoids medical cure claims"]
+  ["Claim boundary", "Overly broad pressure promise", "A short routine built around stated specs and conservative wellness language"]
 ];
 
 const featureBanners = [
@@ -98,6 +98,22 @@ const featureBanners = [
   {
     src: `${assetBase}/mc06-feature-banner-02.png`,
     alt: "RecoveryAir Calf Pro compression and heat feature detail"
+  }
+];
+
+const mc06SellingPointVideo = "/videos/mc06-selling-points.mp4";
+
+const moreSellingPoints = [
+  {
+    title: "Relax and Deep Modes",
+    details: ["All inflation", "Upper inflation", "Middle inflation", "Lower inflation"]
+  },
+  {
+    title: "Controlled Heat Therapy"
+  },
+  {
+    title: "Fast Recovery",
+    details: ["Precision Target Trigger points"]
   }
 ];
 
@@ -217,17 +233,17 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
       <section className="bg-[#f7f7f4] py-16 lg:py-20" id="simple-science">
         <div className="page-shell">
           <div className="relative overflow-hidden rounded-monauro bg-white">
-            <div className="relative aspect-[12/5] bg-[#e9e9e5]">
+            <div className="relative aspect-[12/5] min-h-[420px] bg-[#e9e9e5]">
               <Image className="object-contain" src={featureBanners[0].src} alt={featureBanners[0].alt} fill sizes="100vw" />
-            </div>
-            <div className="mx-auto -mt-8 grid max-w-5xl gap-5 rounded-monauro border border-black/10 bg-white/96 p-5 shadow-sm lg:-mt-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:p-6">
-              <div className="border-b border-black/10 pb-4 text-left lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-monauro-orange">Simple science</p>
-                <h2 className="mt-2 text-3xl font-semibold leading-tight md:text-4xl">Rhythmic compression, heat, short routines.</h2>
+              <div className="absolute inset-x-0 bottom-0 grid gap-5 border-t border-white/45 bg-white/62 px-6 py-5 text-left shadow-[0_-18px_38px_rgba(255,255,255,0.22)] backdrop-blur-md lg:grid-cols-[0.48fr_0.52fr] lg:items-center lg:px-10">
+                <div className="lg:border-r lg:border-black/10 lg:pr-8">
+                  <p className="text-xs font-bold uppercase tracking-wide text-monauro-orange">Simple science</p>
+                  <h2 className="mt-2 text-2xl font-semibold leading-[1.08] text-monauro-ink md:text-3xl">Rhythmic compression, heat, short routines.</h2>
+                </div>
+                <p className="max-w-3xl text-sm leading-6 text-neutral-700">
+                  Rhythmic air compression, two massage modes, {"42℃ / 45℃"} heated surface support, and a 15-minute auto-off session define the core routine.
+                </p>
               </div>
-              <p className="text-left text-sm leading-7 text-neutral-600">
-                The confirmed mechanism is rhythmic air compression, two massage modes, {"42\u2103 / 45\u2103"} heated surface support, and a 15-minute auto-off session.
-              </p>
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 px-6 py-12 text-center sm:grid-cols-4">
               {statHighlights.map(([value, label]) => (
@@ -259,7 +275,15 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
             </div>
           </div>
           <figure className="relative min-h-[360px] overflow-hidden rounded-monauro bg-[#f7f7f4] lg:min-h-[520px]">
-            <Image className="object-cover" src={featureBanners[1].src} alt={featureBanners[1].alt} fill sizes="(min-width: 1024px) 48vw, 100vw" />
+            <video
+              aria-label="RecoveryAir Calf Pro main selling point video"
+              autoPlay
+              className="h-full min-h-[360px] w-full object-contain p-4 lg:min-h-[520px]"
+              loop
+              muted
+              playsInline
+              src={mc06SellingPointVideo}
+            />
           </figure>
         </div>
       </section>
@@ -269,14 +293,36 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
           <SectionHeader
             eyebrow="More details"
             title="Mode, heat, battery, and travel details in one visual flow."
-            description="These product visuals use the supplied MC06 material. Any copy that conflicts with the confirmed manual should be corrected in the source image before production launch."
+            description="Tap each headline to see the detail behind the mode, heat, recovery, and trigger-point story."
           />
           <div className="mx-auto grid max-w-[1360px] gap-5 md:grid-cols-3">
-            {moreSellingImages.map((image) => (
-              <figure className="relative aspect-[4/5] overflow-hidden rounded-monauro bg-white" key={image.src}>
-                <Image className="object-contain" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 32vw, 100vw" />
-              </figure>
-            ))}
+            {moreSellingImages.map((image, index) => {
+              const point = moreSellingPoints[index];
+              return (
+                <article className="overflow-hidden rounded-monauro bg-white shadow-sm" key={image.src}>
+                  <figure className="relative aspect-[4/5] bg-white">
+                    <Image className="object-contain" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 32vw, 100vw" />
+                  </figure>
+                  <div className="border-t border-black/10 bg-white/92 p-5">
+                    {point.details ? (
+                      <details className="group/detail">
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-semibold text-monauro-ink [&::-webkit-details-marker]:hidden">
+                          {point.title}
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/20 text-lg leading-none transition group-open/detail:rotate-90">+</span>
+                        </summary>
+                        <div className="mt-4 grid gap-3 border-t border-black/10 pt-4 text-base leading-6 text-neutral-700">
+                          {point.details.map((detail) => (
+                            <p key={detail}>{detail}</p>
+                          ))}
+                        </div>
+                      </details>
+                    ) : (
+                      <h3 className="text-xl font-semibold text-monauro-ink">{point.title}</h3>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -309,9 +355,9 @@ export function CalfProLanding({ product, relatedProducts }: CalfProLandingProps
         <div className="page-shell">
           <div className="border-b border-white/18 pb-6">
             <p className="text-sm font-bold uppercase text-monauro-teal">Technical specifications</p>
-            <h2 className="mt-4 text-4xl font-semibold md:text-5xl">MC06 confirmed details.</h2>
+            <h2 className="mt-4 text-4xl font-semibold md:text-5xl">MC06 technical details.</h2>
             <p className="mt-4 max-w-3xl text-sm leading-6 text-white/62">
-              This section combines all confirmed MC06 product data into one technical block. Claims, certifications, clinical endorsements, and customer proof should be added only after source confirmation.
+              Specs are organized in one technical block so shoppers can compare dimensions, power, battery, heat, and package contents quickly.
             </p>
           </div>
           <div className="grid gap-5 pt-8 sm:grid-cols-2 lg:grid-cols-4">

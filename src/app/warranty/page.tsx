@@ -6,13 +6,13 @@ export default function WarrantyPage() {
       <SectionHeader
         eyebrow="Warranty"
         title="365-day warranty support."
-        description="The warranty period is confirmed as 365 days. Detailed warranty exclusions, claim steps, and regional handling rules should be finalized before production launch."
+        description="MONAURO products include 365-day warranty support. Keep your order information ready when contacting customer service."
       />
       <div className="grid gap-4 md:grid-cols-3">
         {[
-          ["Coverage period", "365 days from the applicable purchase record, subject to final production policy wording."],
+          ["Coverage period", "365 days from the applicable purchase record."],
           ["Support email", "Warranty questions can be directed to info@monauro.com."],
-          ["Production requirement", "Add warranty claim workflow, proof-of-purchase rules, and Shopify order lookup before launch."]
+          ["Order records", "Warranty requests should include order details and product information for faster support."]
         ].map(([title, body]) => (
           <div className="rounded-monauro border border-black/10 bg-white p-6" key={title}>
             <p className="text-sm font-semibold uppercase text-monauro-orange">{title}</p>

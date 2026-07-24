@@ -43,7 +43,7 @@ img {
 @layer components {
   .page-shell {
     width: 100%;
-    padding-left: clamp(1.25rem, 4vw, 5rem);
-    padding-right: clamp(1.25rem, 4vw, 5rem);
+    padding-left: clamp(1rem, 3.6vw, 4.5rem);
+    padding-right: clamp(1rem, 3.6vw, 4.5rem);
   }
 }

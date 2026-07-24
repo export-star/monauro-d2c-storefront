@@ -2,15 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
+import { productMatrixImages } from "@/data/product-matrix-images";
 import { products } from "@/data/products";
 import { trustPolicies } from "@/data/policies";
 
-const productMatrixImages: Record<string, string> = {
-  "recoveryair-calf-pro": "/images/home/product-matrix/home-calf-pro.png",
-  "recoveryair-leg-elite": "/images/home/product-matrix/home-leg-elite.png",
-  "relaxiwave-eye-mask": "/images/home/product-matrix/home-eye-mask.png",
-  "back-massage-gun": "/images/home/product-matrix/home-back-massage-gun.png"
-};
 
 const painSolutions = [
   {

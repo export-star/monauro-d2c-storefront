@@ -7,7 +7,7 @@ export default function OrderTrackingPage() {
       <SectionHeader
         eyebrow="Order Tracking"
         title="Track your MONAURO order."
-        description="This demo page is prepared for a Shopify order-status or third-party logistics tracking integration."
+        description="Use your order number and email to prepare a tracking request with MONAURO support."
       />
       <div className="grid gap-5 lg:grid-cols-[1fr_0.75fr]">
         <form className="rounded-monauro border border-black/10 bg-white p-6">
@@ -32,7 +32,7 @@ export default function OrderTrackingPage() {
             type="email"
           />
           <div className="mt-6">
-            <Button href="/support">Tracking integration pending</Button>
+            <Button href="/support">Contact Support</Button>
           </div>
         </form>
         <div className="rounded-monauro border border-black/10 bg-monauro-gray/45 p-6">
@@ -40,7 +40,7 @@ export default function OrderTrackingPage() {
           <div className="mt-5 grid gap-3 text-sm leading-6 text-neutral-700">
             <p>Free shipping to Europe, the United States, and Southeast Asia.</p>
             <p>Estimated delivery time: 3-10 days.</p>
-            <p>For demo support, contact info@monauro.com.</p>
+            <p>For support, contact info@monauro.com.</p>
           </div>
         </div>
       </div>

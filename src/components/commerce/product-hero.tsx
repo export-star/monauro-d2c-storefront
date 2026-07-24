@@ -11,7 +11,7 @@ export function ProductHero({ product }: ProductHeroProps) {
   const heroImage = product.images.find((image) => image.role === "hero") ?? product.images[0];
   const galleryImages = product.images.filter((image) => image.role === "gallery" || image.role === "lifestyle");
   const modelSpec = product.specs.find((spec) => spec.label.toLowerCase().includes("sku") || spec.label.toLowerCase().includes("model"));
-  const modelLabel = modelSpec?.status === "confirmed" ? `Model ${modelSpec.value}` : "Product exists";
+  const modelLabel = modelSpec ? `Model ${modelSpec.value}` : product.name;
 
   return (
     <section className="bg-white">
@@ -21,7 +21,7 @@ export function ProductHero({ product }: ProductHeroProps) {
             {heroImage ? (
               <Image className="object-contain p-4" src={heroImage.src} alt={heroImage.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" />
             ) : (
-              "Real product image or approved video pending"
+              product.name
             )}
           </div>
           {galleryImages.length > 0 ? (
@@ -68,10 +68,9 @@ export function ProductHero({ product }: ProductHeroProps) {
             </p>
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="#shopify-handle-to-confirm">Add to Cart</Button>
+            <Button href="/cart">Add to Cart</Button>
             <Button href="/support" variant="secondary">Ask a Specialist</Button>
           </div>
-          <p className="mt-5 text-sm leading-6 text-neutral-500">Shopify handle still needs to be connected before production launch.</p>
         </div>
       </div>
     </section>

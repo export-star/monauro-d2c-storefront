@@ -15,11 +15,8 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
             <span className="text-xl leading-none transition group-open:rotate-45">+</span>
           </summary>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-neutral-600">{item.answer}</p>
-          {item.status === "to_confirm" ? (
-            <div className="mt-4">
-              <Tag tone="orange">To be confirmed</Tag>
-            </div>
-          ) : null}
+
+
         </details>
       ))}
     </div>

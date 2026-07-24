@@ -50,7 +50,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
   if (!activeImage) {
     return (
       <div className="flex min-h-[420px] items-center justify-center rounded-monauro border border-black/10 bg-[#f3f3ef] text-sm text-neutral-500">
-        Product image pending
+        Product media
       </div>
     );
   }
@@ -77,7 +77,7 @@ export function ProductMediaGallery({ images, priority = false, showThumbnails =
           />
         ) : (
           <Image
-            className={isHero ? "object-cover" : "object-contain p-4"}
+            className={isHero ? "object-contain bg-[#f3f5f2]" : "object-contain p-4"}
             src={activeImage.src}
             alt={activeImage.alt}
             fill

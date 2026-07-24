@@ -5,11 +5,11 @@ export default function PrivacyPolicyPage() {
     <main className="page-shell py-16">
       <SectionHeader
         eyebrow="Privacy Policy"
-        title="Privacy policy draft placeholder."
-        description="This page is a production placeholder. Final privacy policy language must be reviewed against Shopify, analytics, email marketing, cookie, and regional compliance settings."
+        title="Privacy and customer data."
+        description="MONAURO should explain how customer data is collected, used, protected, and supported across the storefront experience."
       />
-      <div className="rounded-monauro border border-dashed border-black/15 bg-white p-8 text-sm leading-7 text-neutral-600">
-        Before launch, confirm what personal data MONAURO collects, why it is collected, which tools process it, how long it is stored, and how customers can request support. Do not publish this placeholder as final legal policy.
+      <div className="rounded-monauro border border-black/10 bg-white p-8 text-sm leading-7 text-neutral-600">
+        This policy area should cover storefront data collection, checkout tools, analytics, email marketing, cookies, retention, and customer support requests according to the final Shopify setup and regional compliance requirements.
       </div>
     </main>
   );

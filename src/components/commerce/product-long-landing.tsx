@@ -7,7 +7,7 @@ import { ProductPurchasePanel } from "@/components/commerce/product-purchase-pan
 import { AutoSwapImage } from "@/components/ui/auto-swap-image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Tag } from "@/components/ui/tag";
-import { productFaqs } from "@/data/faqs";
+import { productFaqsBySlug } from "@/data/faqs";
 
 export type ProductLongPageCopy = {
   outcomeTitle: string;
@@ -26,27 +26,45 @@ type ProductLongLandingProps = {
 
 const hideRoutineStepProductSlugs = new Set(["relaxiwave-eye-mask", "back-massage-gun"]);
 
+const productMainSellingVideos: Record<string, string> = {
+  "recoveryair-leg-elite": "/videos/ml01-selling-points.mp4",
+  "relaxiwave-eye-mask": "/videos/me01-selling-points.mp4",
+  "back-massage-gun": "/videos/mg01-selling-points.mp4"
+};
+
+const structuredVisualProductSlugs = new Set(["recoveryair-leg-elite", "back-massage-gun"]);
+
 const technicalSpecLabels = [
   "SKU / Model",
   "Price",
   "Color options",
   "Product dimensions",
   "Strap dimensions",
+  "Handle dimensions",
   "Weight",
   "Material",
   "Battery capacity",
   "Battery voltage",
   "Rated voltage / power",
   "Charging",
+  "Charging time",
   "Maximum usage time",
   "Single-session guidance",
   "Massage modes",
   "Air pressure",
   "Heat levels",
+  "Motor",
+  "Speed levels",
+  "Battery runtime",
+  "Amplitude",
+  "Stall force",
+  "Noise",
+  "Massage heads",
   "Application area",
   "Core functions",
   "Package includes",
-  "Sales status"
+  "Sales status",
+  "Availability"
 ];
 
 function getSpecValue(product: Product, label: string) {
@@ -88,6 +106,16 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
   const colorCount = getColorCount(product);
   const confirmedSpecs = product.specs.filter((spec) => technicalSpecLabels.includes(spec.label));
   const showRoutineSteps = !hideRoutineStepProductSlugs.has(product.slug);
+  const mainSellingVideo = productMainSellingVideos[product.slug];
+  const faqItems = productFaqsBySlug[product.slug] ?? [];
+  const useStructuredDetailGallery = structuredVisualProductSlugs.has(product.slug);
+  const isLegElite = product.slug === "recoveryair-leg-elite";
+  const featureTitle = isLegElite ? "Full-leg recovery support, simplified." : product.slug === "relaxiwave-eye-mask" ? "A calmer eye-care ritual for screen-heavy days." : "Targeted massage support you can control.";
+  const featureDescription = isLegElite
+    ? "EMS massage, heated comfort, and air-bag compression come together in a broader leg routine for home, travel, and long-day recovery."
+    : product.slug === "relaxiwave-eye-mask"
+      ? "Vibration massage, heated comfort, built-in white noise, and three massage modes support a short eye-area relaxation routine."
+      : "Four speed levels, five massage heads, and an independent back-massage form support full-body relaxation without needing another person.";
 
   return (
     <main>
@@ -153,7 +181,7 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
                     ) : (
                       <Image className="object-contain p-5 transition duration-500 group-hover:scale-[1.03]" src={primaryImage.src} alt={primaryImage.alt} fill sizes="(min-width: 1024px) 30vw, 100vw" />
                     )}
-                    <div className="absolute inset-x-4 bottom-4 rounded-monauro border border-white/35 bg-white/78 p-5 text-monauro-ink shadow-lg backdrop-blur-xl">
+                    <div className="absolute inset-x-4 bottom-4 rounded-monauro border border-white/35 bg-white/86 p-5 text-monauro-ink shadow-lg backdrop-blur-xl">
                       <p className="text-xs font-semibold uppercase text-neutral-600">0{index + 1} / routine</p>
                       <h3 className="mt-3 text-2xl font-semibold">{title}</h3>
                       <p className="mt-3 text-sm leading-6 text-neutral-700">{description}</p>
@@ -170,7 +198,7 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         <div className="page-shell">
           <div className="relative overflow-hidden rounded-monauro bg-white">
             {detailBanner ? (
-              <div className="relative min-h-[260px] bg-[#e9e9e5] lg:min-h-[440px]">
+              <div className="relative aspect-[12/5] min-h-[260px] bg-[#e9e9e5]">
                 <VisualImage image={detailBanner} className="object-contain" />
               </div>
             ) : null}
@@ -201,23 +229,32 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         <div className="grid page-shell gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <SectionHeader
-              eyebrow="Feature map"
-              title="A product story built only from confirmed inputs."
-              description={`Confirmed core functions: ${coreFunctions}. Detailed operating claims should be expanded after the final manual is supplied.`}
+              eyebrow="Product highlights"
+              title={featureTitle}
+              description={featureDescription}
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {product.features.map((feature) => (
                 <div className="rounded-monauro bg-[#f7f7f4] p-5" key={feature.title}>
-                  <Tag tone={feature.status === "confirmed" ? "green" : "orange"}>
-                    {feature.status === "confirmed" ? "Confirmed" : "To confirm"}
-                  </Tag>
-                  <p className="mt-4 font-semibold">{feature.title}</p>
+                  <p className="text-lg font-semibold">{feature.title}</p>
                   <p className="mt-3 text-sm leading-6 text-neutral-600">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
-          {mechanismImage ? (
+          {mainSellingVideo ? (
+            <figure className="relative min-h-[360px] overflow-hidden rounded-monauro bg-[#f7f7f4] lg:min-h-[520px]">
+              <video
+                aria-label={`${product.name} main selling point video`}
+                autoPlay
+                className="h-full min-h-[360px] w-full object-contain p-4 lg:min-h-[520px]"
+                loop
+                muted
+                playsInline
+                src={mainSellingVideo}
+              />
+            </figure>
+          ) : mechanismImage ? (
             <figure className="relative min-h-[360px] overflow-hidden rounded-monauro bg-[#f7f7f4] lg:min-h-[520px]">
               <Image className="object-contain p-6" src={mechanismImage.src} alt={mechanismImage.alt} fill sizes="(min-width: 1024px) 48vw, 100vw" />
             </figure>
@@ -225,21 +262,68 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         </div>
       </section>
 
-      {detailStoryImages.length ? (
+            {detailStoryImages.length ? (
         <section className="bg-[#f7f7f4] py-16">
           <div className="page-shell">
             <SectionHeader
               eyebrow="More product visuals"
-              title="Details, benefits, and product use in one gallery."
-              description="These uploaded visuals are presented at their natural ratios, so product information stays legible and the page does not rely on cropped placeholders."
+              title={isLegElite ? "A cleaner way to read the leg system." : useStructuredDetailGallery ? "Visual details for targeted body care." : "Details, benefits, and product use in one gallery."}
+              description={
+                isLegElite
+                  ? "Selected visuals are grouped around coverage, comfort, and day-to-day use, so the section supports the product story without showing every file at once."
+                  : useStructuredDetailGallery
+                    ? "Selected visuals are grouped by what they communicate, with supporting images kept secondary to the core use story."
+                    : "Product details and use visuals are arranged to keep the page easy to scan."
+              }
             />
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {detailStoryImages.map((image) => (
-                <figure className="relative min-h-[440px] overflow-hidden rounded-monauro border border-black/10 bg-white lg:min-h-[520px]" key={image.src}>
-                  <Image className="object-contain p-4" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" />
-                </figure>
-              ))}
-            </div>
+            {isLegElite ? (
+              <div className="grid gap-5">
+                <div className="grid gap-5 lg:grid-cols-[1.12fr_0.88fr]">
+                  {detailStoryImages[0] ? (
+                    <figure className="relative aspect-[16/9] overflow-hidden rounded-monauro border border-black/10 bg-white">
+                      <Image className="object-contain p-4" src={detailStoryImages[0].src} alt={detailStoryImages[0].alt} fill sizes="(min-width: 1024px) 58vw, 100vw" />
+                    </figure>
+                  ) : null}
+                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+                    {detailStoryImages.slice(1, 3).map((image) => (
+                      <figure className="relative aspect-[16/9] overflow-hidden rounded-monauro border border-black/10 bg-white" key={image.src}>
+                        <Image className="object-contain p-3" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 34vw, 100vw" />
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid gap-5 md:grid-cols-3">
+                  {detailStoryImages.slice(3, 6).map((image) => (
+                    <figure className="relative aspect-[4/5] overflow-hidden rounded-monauro border border-black/10 bg-white" key={image.src}>
+                      <Image className="object-contain p-3" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ) : useStructuredDetailGallery ? (
+              <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+                {detailStoryImages[0] ? (
+                  <figure className="relative aspect-[4/3] overflow-hidden rounded-monauro border border-black/10 bg-white">
+                    <Image className="object-contain p-4" src={detailStoryImages[0].src} alt={detailStoryImages[0].alt} fill sizes="(min-width: 1024px) 54vw, 100vw" />
+                  </figure>
+                ) : null}
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {detailStoryImages.slice(1, 5).map((image) => (
+                    <figure className="relative aspect-[4/5] overflow-hidden rounded-monauro border border-black/10 bg-white" key={image.src}>
+                      <Image className="object-contain p-3" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 22vw, (min-width: 640px) 50vw, 100vw" />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {detailStoryImages.map((image) => (
+                  <figure className="relative aspect-[4/5] overflow-hidden rounded-monauro border border-black/10 bg-white" key={image.src}>
+                    <Image className="object-contain p-3" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" />
+                  </figure>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       ) : null}
@@ -248,9 +332,9 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         <div className="page-shell">
           <div className="border-b border-white/18 pb-6">
             <p className="text-sm font-bold uppercase text-monauro-teal">Technical specifications</p>
-            <h2 className="mt-4 text-4xl font-semibold md:text-5xl">{model} confirmed details.</h2>
+            <h2 className="mt-4 text-4xl font-semibold md:text-5xl">{model} technical details.</h2>
             <p className="mt-4 max-w-3xl text-sm leading-6 text-white/62">
-              This block keeps product data in one place. Certifications, clinical proof, and customer cases should only be added after source confirmation.
+              Specs are organized for quick comparison across the MONAURO product line, with safety-sensitive language kept clear and conservative.
             </p>
           </div>
           <div className="grid gap-5 pt-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -268,7 +352,7 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         <SectionHeader
           eyebrow="Recovery system"
           title="Build the next routine around the rest of the body."
-          description="Related product paths support the MONAURO recovery-system strategy without presenting unconfirmed bundles."
+          description="Compare by body area and routine, then move into the product page that fits the recovery moment."
         />
         <div className="grid gap-5 md:grid-cols-3">
           {relatedProducts.map((item) => (
@@ -279,7 +363,7 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
 
       <section className="page-shell py-16">
         <SectionHeader eyebrow="FAQ" title="Safety, usage, policy, and checkout questions." />
-        <FaqAccordion items={productFaqs} />
+        <FaqAccordion items={faqItems} />
       </section>
     </main>
   );

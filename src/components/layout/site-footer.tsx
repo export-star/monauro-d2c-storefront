@@ -22,7 +22,7 @@ export function SiteFooter() {
             height={72}
           />
           <p className="mt-4 max-w-md text-sm leading-6 text-neutral-600">
-            Demo site for a recovery technology system. Product claims, policies, reviews, and certifications must be confirmed before launch.
+            Recovery technology for short, body-area routines across eyes, legs, back, and everyday tension.
           </p>
         </div>
         <div>
@@ -58,7 +58,7 @@ export function SiteFooter() {
         <div>
           <p className="font-semibold">Compliance note</p>
           <p className="mt-4 text-sm leading-6 text-neutral-600">
-            MONAURO content should support education and product discovery. It should not replace professional medical advice.
+            MONAURO content supports education and product discovery. It should not replace professional medical advice.
           </p>
         </div>
       </div>

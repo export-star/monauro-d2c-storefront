@@ -6,7 +6,7 @@ export default function AboutPage() {
       <SectionHeader
         eyebrow="Brand Story"
         title="A quieter way to build daily recovery routines."
-        description="MONAURO's full origin story, founder background, and company credentials should be added only from confirmed source materials."
+        description="MONAURO is shaped around compact recovery technology, calm product rituals, and body-area routines for everyday wellness."
       />
       <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-monauro border border-black/10 bg-white p-8">
@@ -15,8 +15,8 @@ export default function AboutPage() {
             MONAURO is being shaped as a recovery technology system, not a loose shelf of wellness devices.
           </p>
         </div>
-        <div className="rounded-monauro border border-dashed border-black/15 bg-white p-8 text-neutral-600">
-          Brand story content pending confirmed MONAURO source files. Please provide founder story, mission, product development notes, team information, and any verified company credentials before launch copy is finalized.
+        <div className="rounded-monauro border border-black/10 bg-white p-8 text-neutral-600">
+          Brand story details can be expanded with approved founder story, mission, product development notes, team information, and verified company credentials.
         </div>
       </div>
     </main>

@@ -8,7 +8,7 @@ export default function RecoveryLibraryPage() {
         <SectionHeader
           eyebrow="Recovery Library"
           title="Education that prepares users to choose."
-          description="Article drafts require sources, professional review boundaries, and related product paths before launch."
+          description="Recovery articles can connect body signals, daily routines, and related MONAURO product paths with conservative wellness language."
         />
       </section>
       <RecoveryLibraryPreview />
