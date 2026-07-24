@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": { "type": "main-product-monauro" },
+    "use_cases": { "type": "product-use-cases-monauro" },
+    "routine": { "type": "product-routine-monauro" },
+    "logic": { "type": "product-logic-monauro" },
+    "highlights": { "type": "product-highlights-monauro" },
+    "gallery": { "type": "product-gallery-monauro" },
+    "comparison": { "type": "product-comparison-monauro" },
+    "specs": { "type": "product-specs-monauro" },
+    "trust": { "type": "monauro-trust" },
+    "related": { "type": "product-related-monauro" },
+    "faq": { "type": "product-faq-monauro" }
+  },
+  "order": ["main", "use_cases", "routine", "logic", "highlights", "gallery", "comparison", "specs", "trust", "related", "faq"]
+}
