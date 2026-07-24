@@ -12,12 +12,26 @@
     const priceTarget = shell?.querySelector('[data-price]');
     const labelTarget = form.querySelector('[data-variant-label]');
     const addButton = form.querySelector('[data-add-to-cart]');
+    const buyButton = form.querySelector('[data-buy-now]');
+    const quantityInput = form.querySelector('input[name="quantity"]');
     const variantButtons = Array.from(form.querySelectorAll('[data-variant-button]'));
+
+    const setAvailability = (available) => {
+      if (addButton) {
+        addButton.disabled = !available;
+        addButton.textContent = available ? 'Add to cart' : 'Sold out';
+      }
+      if (buyButton) {
+        buyButton.disabled = !available;
+        buyButton.textContent = available ? 'Buy it now' : 'Sold out';
+      }
+    };
 
     variantButtons.forEach((button) => {
       button.addEventListener('click', () => {
         if (button.disabled || !variantInput) return;
         variantInput.value = button.dataset.variantId || '';
+        variantInput.dispatchEvent(new Event('change', { bubbles: true }));
         variantButtons.forEach((item) => {
           const isActive = item === button;
           item.classList.toggle('is-active', isActive);
@@ -25,12 +39,17 @@
         });
         if (priceTarget && button.dataset.variantPrice) priceTarget.textContent = button.dataset.variantPrice;
         if (labelTarget && button.dataset.variantTitle) labelTarget.textContent = button.dataset.variantTitle;
-        if (addButton) {
-          const available = button.dataset.variantAvailable === 'true';
-          addButton.disabled = !available;
-          addButton.textContent = available ? 'Add to cart' : 'Sold out';
-        }
+        setAvailability(button.dataset.variantAvailable === 'true');
       });
+    });
+
+    buyButton?.addEventListener('click', () => {
+      if (!variantInput?.value || buyButton.disabled) return;
+      const quantity = Math.max(1, Number.parseInt(quantityInput?.value || '1', 10) || 1);
+      const root = window.Shopify?.routes?.root || '/';
+      buyButton.disabled = true;
+      buyButton.textContent = 'Opening checkout...';
+      window.location.assign(`${root}cart/${encodeURIComponent(variantInput.value)}:${quantity}?checkout`);
     });
 
     if (variantInput?.tagName === 'SELECT') {
@@ -40,7 +59,6 @@
       });
     }
   });
-
   document.querySelectorAll('[data-media-slider]').forEach((slider) => {
     const slides = Array.from(slider.querySelectorAll('[data-slide]'));
     const currentTarget = slider.querySelector('[data-slide-current]');

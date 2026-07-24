@@ -360,11 +360,16 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   padding: 0 12px;
 }
 .product-purchase__add,
-.product-purchase__buy-now .shopify-payment-button__button {
-  min-height: 46px !important;
+.product-purchase__buy-now {
+  width: 100%;
+  min-height: 46px;
 }
-.product-purchase__buy-now .shopify-payment-button__button {
-  background: var(--monauro-orange) !important;
+.product-purchase__add:disabled,
+.product-purchase__buy-now:disabled {
+  cursor: not-allowed;
+  filter: grayscale(.35);
+  opacity: .55;
+  transform: none;
 }
 .product-zoom {
   width: min(94vw, 1500px);
