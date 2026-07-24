@@ -1392,7 +1392,7 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   font: inherit;
 }
 .cart-note textarea { resize: vertical; text-transform: none; }
-.cart-update,
+.cart-clear,
 .cart-checkout { width: 100%; }
 .cart-checkout { min-height: 50px; }
 .cart-trust {
@@ -1464,16 +1464,20 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   background: #f4f4f1;
 }
 
-.cart-summary__secondary-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.cart-update,
 .cart-clear,
 .cart-checkout {
   appearance: none;
 }
-@media (max-width: 520px) {
-  .cart-summary__secondary-actions { grid-template-columns: 1fr; }
+.cart-action-status {
+  margin: -6px 0 0;
+  color: var(--monauro-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.cart-action-status.is-error { color: #a33122; }
+.quantity-input:disabled,
+.cart-clear:disabled,
+.cart-checkout[aria-disabled="true"] {
+  cursor: wait;
+  opacity: .58;
 }
