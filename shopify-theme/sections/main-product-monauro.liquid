@@ -106,7 +106,7 @@
         <div class="product-purchase__actions">
           <label class="quantity-stepper"><span>Quantity</span><input type="number" name="quantity" min="1" value="1" inputmode="numeric"></label>
           <button class="btn btn-primary product-purchase__add" type="submit" name="add" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
-          <div class="product-purchase__buy-now">{{ form | payment_button }}</div>
+          <button class="btn btn-secondary product-purchase__buy-now" type="button" data-buy-now {% unless current_variant.available %}disabled{% endunless %}>Buy it now</button>
         </div>
       </div>
     {% endform %}
