@@ -1,2 +1,2 @@
 :HL["/monauro-d2c-storefront/_next/static/chunks/3e-oni--j_tz_.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"shipping-returns","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"kTxYiN7mSvblzlc-HlhGC"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"shipping-returns","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"DprZLd2NqK5MEN5aCwsiT"}
