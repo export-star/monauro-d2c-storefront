@@ -44,7 +44,7 @@
               <p class="cart-summary__shipping">Shipping and taxes are calculated at checkout. Free shipping applies to orders over $99.</p>
               <label class="cart-note"><span>Order note</span><textarea name="note" rows="3" placeholder="Optional">{{ cart.note }}</textarea></label>
               <button class="btn btn-outline cart-clear" type="submit" formaction="{{ routes.cart_clear_url }}" formmethod="post" formnovalidate data-cart-clear>Clear cart</button>
-              <a class="btn btn-primary cart-checkout" href="{{ routes.root_url }}checkout" target="_top" data-cart-checkout>Secure checkout</a>
+              <button class="btn btn-primary cart-checkout" type="submit" name="checkout" formtarget="_top">Secure checkout</button>
               <p class="cart-action-status" role="status" aria-live="polite" hidden></p>
               <div class="cart-trust">
                 <p><strong>30-day risk-free trial</strong><span>Returns and exchanges</span></p>

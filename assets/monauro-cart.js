@@ -61,22 +61,4 @@
     }
   });
 
-  const checkoutLink = cartForm.querySelector('[data-cart-checkout]');
-  checkoutLink?.addEventListener('click', async (event) => {
-    event.preventDefault();
-    checkoutLink.setAttribute('aria-disabled', 'true');
-    setStatus('Opening secure checkout...');
-    const note = cartForm.querySelector('[name="note"]')?.value || '';
-    try {
-      await postCart('update', { note });
-    } catch (error) {
-      // Checkout remains available even when an optional note cannot be saved.
-    }
-    const checkoutUrl = checkoutLink.href;
-    try {
-      window.top.location.assign(checkoutUrl);
-    } catch (error) {
-      window.location.assign(checkoutUrl);
-    }
-  });
 })();

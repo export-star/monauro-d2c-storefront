@@ -111,7 +111,7 @@
         <div class="product-purchase__actions">
           <label class="quantity-stepper"><span>Quantity</span><input type="number" name="quantity" min="1" value="1" inputmode="numeric"></label>
           <button class="btn btn-primary product-purchase__add" type="submit" name="add" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
-          <button class="btn btn-secondary product-purchase__buy-now" type="button" data-buy-now {% unless current_variant.available %}disabled{% endunless %}>Buy it now</button>
+          <button class="btn btn-secondary product-purchase__buy-now" type="submit" name="return_to" value="{{ routes.root_url }}checkout" formtarget="_top" data-buy-now {% unless current_variant.available %}disabled{% endunless %}>Buy it now</button>
         </div>
         <p class="product-purchase__status" role="status" aria-live="polite" data-purchase-status hidden></p>
       </div>
