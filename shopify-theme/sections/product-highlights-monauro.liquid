@@ -1,0 +1,63 @@
+{% liquid
+  assign heading = ''
+  assign description = ''
+  assign feature_data = ''
+  assign feature_video = ''
+
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign heading = 'Three compression groups work in sequence.'
+      assign description = 'The manual describes three groups of six massage heads that inflate and deflate rhythmically across the calf.'
+      assign feature_data = 'Air-compression zones::Three groups of six massage heads inflate and deflate rhythmically.|Two massage modes::Level 1 Relax massage and Level 2 Deep massage give the routine a simple low-to-deep structure.|Session guardrail::Auto-off after 15 minutes helps keep the routine short and repeatable.|Two heat levels::The confirmed heat settings are 42℃ and 45℃.|Cordless routine::A 2000mAh battery and Type-C charging support home, desk, and travel use.'
+      assign feature_video = 'mc06-selling-points.mp4'
+    when 'monauro-recoveryair-leg-elite'
+      assign heading = 'Full-leg recovery support, simplified.'
+      assign description = 'EMS massage, heated comfort, and air-bag compression come together in a broader leg routine for home, travel, and long-day recovery.'
+      assign feature_data = 'EMS massage::Uses EMS massage as part of a leg-focused recovery routine.|Heated comfort::Includes 50℃ and 55℃ heat support for leg relaxation routines.|Air compression::Uses air-bag compression for broader leg recovery support.|Cordless routine::A 3000mAh battery supports up to less than 60 minutes on the highest setting.'
+      assign feature_video = 'ml01-selling-points.mp4'
+    when 'relaxiwave-eye-mask'
+      assign heading = 'A calmer eye-care ritual for screen-heavy days.'
+      assign description = 'Vibration massage, heated comfort, built-in white noise, and three massage modes support a short eye-area relaxation routine.'
+      assign feature_data = '15-minute routine::Designed around a short eye-area relaxation session.|Three massage modes::Soothing, vitality, and sleep modes support different wind-down moments.|Heated comfort::Low 38℃ ±2℃ and high 42℃ ±2℃ heat settings.|Ten-point massage::Ten massage points support targeted eye-area comfort.|Built-in audio::Background music, white noise, and voice prompts support a calmer session.'
+      assign feature_video = 'me01-selling-points.mp4'
+    when 'back-massage-gun'
+      assign heading = 'Targeted massage support you can control.'
+      assign description = 'Four speed levels, five massage heads, and an independent back-massage form support full-body relaxation without needing another person.'
+      assign feature_data = 'Independent back reach::The extended form supports self-use back massage.|Four speed levels::Confirmed levels are 2000R, 2600R, 3200R, and 800R.|Five massage heads::Ball, bullet, U-shaped, wedge, and flat heads are included.|Controlled performance::A brushless motor, 6mm amplitude, 10kg stall force, and 55dB noise level are listed in the product data.|Session timer::A 15-minute smart timer helps keep the routine structured.'
+      assign feature_video = 'mg01-selling-points.mp4'
+  endcase
+  assign features = feature_data | split: '|'
+%}
+
+{% if heading != blank %}
+  <section class="product-highlights">
+    <div class="product-page-shell product-highlights__grid">
+      <div>
+        <p class="product-kicker">Product highlights</p>
+        <h2>{{ heading }}</h2>
+        <p class="product-highlights__intro">{{ description }}</p>
+        <div class="product-highlights__cards">
+          {% for feature in features %}
+            {% assign parts = feature | split: '::' %}
+            <article>
+              <h3>{{ parts[0] }}</h3>
+              <p>{{ parts[1] }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+      <figure class="product-highlights__video">
+        <video autoplay loop muted playsinline preload="metadata" aria-label="{{ product.title | escape }} main feature video">
+          <source src="{{ feature_video | asset_url }}" type="video/mp4">
+        </video>
+      </figure>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO highlights",
+  "settings": []
+}
+{% endschema %}

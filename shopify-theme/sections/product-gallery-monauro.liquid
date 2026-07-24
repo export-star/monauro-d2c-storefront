@@ -1,0 +1,65 @@
+{% liquid
+  assign heading = ''
+  assign description = ''
+  assign gallery_data = ''
+  assign layout_name = 'standard'
+
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign heading = 'Mode, heat, battery, and travel details in one visual flow.'
+      assign description = 'Open the first or third headline to review the confirmed detail. The middle visual remains a simple title.'
+      assign gallery_data = 'mc06-more-01.webp::Relax and Deep Modes::All inflation, upper inflation, middle inflation, and lower inflation are described in the operating sequence.|mc06-more-02.webp::Controlled Heat Therapy::|mc06-more-03.webp::Fast Recovery::Precision target points, Type-C charging, and a short repeatable routine support everyday use.'
+    when 'monauro-recoveryair-leg-elite'
+      assign heading = 'A cleaner way to read the leg system.'
+      assign description = 'Selected visuals are grouped around coverage, comfort, and day-to-day use so the page stays easy to scan.'
+      assign layout_name = 'editorial'
+      assign gallery_data = 'ml01-more-01.webp::Full-leg coverage::A broader leg-focused form supports at-home, post-travel, and post-activity routines.|ml01-more-02.webp::EMS massage::EMS massage is one of the three confirmed core functions.|ml01-more-03.webp::Heated comfort::Two confirmed heat levels are 50℃ and 55℃.|ml01-more-04.webp::Air-bag compression::Air-bag compression supports a structured leg recovery routine.|ml01-more-05.webp::Cordless use::The 3000mAh battery supports less than 60 minutes on the highest setting.|ml01-more-06.webp::Two color options::Available in Calm Purple and Electric Green.'
+    when 'relaxiwave-eye-mask'
+      assign heading = 'Heat, comfort, and a quiet wind-down routine.'
+      assign description = 'Three focused visuals explain the confirmed eye-mask functions without adding unverified claims.'
+      assign gallery_data = 'me01-more-02.webp::Ten-point massage::Ten massage points support targeted eye-area comfort.|me01-more-03.webp::A comfortable eye-area fit::The wearable form supports a short relaxation session after screen-heavy work.|me01-more-01.webp::Two heat settings::Low 38℃ ±2℃ and high 42℃ ±2℃ settings support heated comfort.'
+    when 'back-massage-gun'
+      assign heading = 'Details, attachments, and independent reach.'
+      assign description = 'The gallery separates full-body use, attachment choice, and the extended back-massage form.'
+      assign layout_name = 'editorial'
+      assign gallery_data = 'mg01-more-01.webp::Independent back reach::The extended form supports self-use back massage without relying on another person.|mg01-more-02.webp::Five massage heads::Ball, bullet, U-shaped, wedge, and flat heads are included.|mg01-more-03.webp::Four speed levels::Confirmed levels are 2000R, 2600R, 3200R, and 800R.|mg01-more-04.webp::Full-body routines::The product is positioned for back, shoulder, waist, hip, thigh, calf, arm, palm, and sole use cases.|mg01-more-05.webp::Controlled performance::The product data lists 6mm amplitude, 10kg stall force, and a brushless motor.|mg01-more-06.webp::Cordless massage::A 1000mAh battery and Type-C charging support portable use.'
+  endcase
+  assign gallery_items = gallery_data | split: '|'
+%}
+
+{% if gallery_data != blank %}
+  <section class="product-gallery">
+    <div class="product-page-shell">
+      <header class="product-section-heading">
+        <p class="product-kicker">More product details</p>
+        <h2>{{ heading }}</h2>
+        <p>{{ description }}</p>
+      </header>
+      <div class="product-gallery__grid product-gallery__grid--{{ layout_name }}">
+        {% for item in gallery_items %}
+          {% assign parts = item | split: '::' %}
+          <article class="product-gallery__card">
+            <div class="product-gallery__media">
+              <img src="{{ parts[0] | asset_url }}" alt="{{ product.title | escape }} {{ parts[1] | escape }}" width="1800" height="1800" loading="lazy">
+            </div>
+            {% if parts[2] != blank %}
+              <details>
+                <summary><span>{{ parts[1] }}</span><span aria-hidden="true">+</span></summary>
+                <p>{{ parts[2] }}</p>
+              </details>
+            {% else %}
+              <h3>{{ parts[1] }}</h3>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO product gallery",
+  "settings": []
+}
+{% endschema %}
