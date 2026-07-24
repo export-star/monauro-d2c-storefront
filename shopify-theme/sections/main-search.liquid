@@ -1,0 +1,4 @@
+﻿<section class="section"><div class="section-header"><h1>Search</h1></div><form action="{{ routes.search_url }}" method="get" role="search" class="search-form"><input class="variant-select" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search MONAURO"><button class="btn btn-primary" type="submit">Search</button></form>{% if search.performed %}<div class="product-grid search-results">{% for item in search.results %}<a class="product-card" href="{{ item.url }}"><div class="product-card-media">{% if item.featured_image %}{{ item.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: item.title }}{% endif %}</div><h3>{{ item.title }}</h3></a>{% endfor %}</div>{% endif %}</section>
+{% schema %}
+{ "name": "Main search" }
+{% endschema %}

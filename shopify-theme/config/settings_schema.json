@@ -1,0 +1,19 @@
+﻿[
+  {
+    "name": "theme_info",
+    "theme_name": "MONAURO Theme",
+    "theme_version": "0.1.0",
+    "theme_author": "MONAURO",
+    "theme_documentation_url": "https://monauro.com",
+    "theme_support_url": "mailto:info@monauro.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_teal", "label": "Primary teal", "default": "#2CD5C4" },
+      { "type": "color", "id": "color_orange", "label": "Accent orange", "default": "#FF8039" },
+      { "type": "color", "id": "color_ink", "label": "Ink", "default": "#171717" },
+      { "type": "color", "id": "color_canvas", "label": "Canvas", "default": "#F7F7F4" }
+    ]
+  }
+]

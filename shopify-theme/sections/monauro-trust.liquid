@@ -1,0 +1,24 @@
+﻿<section class="section trust-section" id="trust">
+  <div class="section-header">
+    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="trust-grid">
+    <article class="trust-card"><h3>Shipping</h3><p>Free shipping on orders over $99. Delivery policy can be managed in Shopify and shown at checkout.</p></article>
+    <article class="trust-card"><h3>Trial</h3><p>30-day risk-free trial language is ready for policy pages and product pages.</p></article>
+    <article class="trust-card"><h3>Warranty</h3><p>365-day warranty support can be linked to Shopify policy and support pages.</p></article>
+    <article class="trust-card"><h3>Support</h3><p>Customer support email: info@monauro.com.</p></article>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "MONAURO trust signals",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Store policies" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Clear purchase support before checkout." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Policy language is separated from product claims, so the store remains easier to maintain after launch." }
+  ],
+  "presets": [{ "name": "MONAURO trust signals" }]
+}
+{% endschema %}

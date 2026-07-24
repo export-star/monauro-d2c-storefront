@@ -1,0 +1,97 @@
+﻿{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign product_copy = product.description | strip_html | truncate: 190 %}
+{% case product.handle %}
+  {% when 'recoveryair-calf-pro' %}
+    {% assign product_copy = 'Rhythmic air compression, 42℃ / 45℃ heated surface support, two massage modes, and a 15-minute auto-off routine for lower-leg recovery.' %}
+  {% when 'monauro-recoveryair-leg-elite' %}
+    {% assign product_copy = 'EMS massage, heated comfort, and air-bag compression support for leg-focused recovery routines.' %}
+  {% when 'relaxiwave-eye-mask' %}
+    {% assign product_copy = 'A 15-minute soothing massage routine for tired eyes with vibration, heat, and built-in white-noise support.' %}
+  {% when 'back-massage-gun' %}
+    {% assign product_copy = 'Independent back massage support with standard massage-gun function and an extended reach design.' %}
+{% endcase %}
+<section class="product-hero" data-product-shell>
+  <div class="product-slider" data-media-slider>
+    {% if product.media.size > 0 %}
+      {% for media in product.media %}
+        <div class="product-slide{% if forloop.first %} is-active{% endif %}" data-slide>
+          {% case media.media_type %}
+            {% when 'image' %}
+              {{ media | image_url: width: 2600 | image_tag: class: 'product-hero-media', loading: 'eager', alt: product.title }}
+            {% when 'video' %}
+              {{ media | video_tag: class: 'product-hero-media', autoplay: true, loop: true, muted: true, playsinline: true, controls: false }}
+            {% else %}
+              {% if media.preview_image %}{{ media.preview_image | image_url: width: 2600 | image_tag: class: 'product-hero-media', loading: 'eager', alt: product.title }}{% endif %}
+          {% endcase %}
+        </div>
+      {% endfor %}
+      {% if product.media.size > 1 %}
+        <div class="product-slider-controls" aria-label="Product media controls">
+          <button type="button" data-slide-prev aria-label="Previous media">‹</button>
+          <div class="slider-dots">
+            {% for media in product.media %}<button type="button" class="slider-dot{% if forloop.first %} is-active{% endif %}" data-slide-dot="{{ forloop.index0 }}" aria-label="Show media {{ forloop.index }}"></button>{% endfor %}
+          </div>
+          <button type="button" data-slide-next aria-label="Next media">›</button>
+        </div>
+      {% endif %}
+    {% elsif product.featured_image %}
+      {{ product.featured_image | image_url: width: 2600 | image_tag: class: 'product-hero-media', loading: 'eager', alt: product.title }}
+    {% endif %}
+  </div>
+  <div class="purchase-overlay">
+    <div>
+      <p class="eyebrow">{{ product.type | default: 'MONAURO' }}</p>
+      <h1 class="product-title">{{ product.title }}</h1>
+      <p class="product-subtitle">{{ product_copy }}</p>
+      <p class="product-price" data-price>{{ current_variant.price | money }}</p>
+    </div>
+    {% form 'product', product, data-product-form: '' %}
+      <div class="product-form-grid">
+        <label>
+          <span class="field-label">Variant</span>
+          <select class="variant-select" name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          <span class="field-label">Quantity</span>
+          <input class="quantity-input" type="number" name="quantity" min="1" value="1">
+        </label>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" name="add" {% unless current_variant.available %}disabled{% endunless %}>Add to cart</button>
+          {{ form | payment_button }}
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</section>
+<section class="product-info-band">
+  <div>
+    <p class="eyebrow">Routine fit</p>
+    <h2>{{ section.settings.info_heading }}</h2>
+  </div>
+  <ul>
+    {% case product.handle %}
+      {% when 'recoveryair-calf-pro' %}
+        <li>Lower-leg routine with air compression and heated surface support.</li><li>Two massage modes: Relax and Deep massage.</li><li>42℃ / 45℃ heat levels.</li><li>15-minute auto-off guardrail.</li><li>2000mAh battery with Type-C charging.</li><li>Suggested single use: no more than 15 minutes.</li>
+      {% when 'monauro-recoveryair-leg-elite' %}
+        <li>Leg-focused recovery routine.</li><li>EMS massage, heat, and air-bag compression.</li><li>Available in Calm Purple and Electric Green.</li><li>Packaging includes product, charging cable, manual, and warranty card.</li>
+      {% when 'relaxiwave-eye-mask' %}
+        <li>Eye-focused 15-minute soothing routine.</li><li>Vibration massage and heated eye support.</li><li>Built-in white noise for a calmer session.</li><li>Packaging includes product, charging cable, manual, and warranty card.</li>
+      {% when 'back-massage-gun' %}
+        <li>Full-body massage-gun support.</li><li>Extended form for independent back massage.</li><li>Designed for back, shoulder, waist, hip, thigh, calf, arm, palm, and sole use cases.</li><li>Packaging includes product, charging cable, manual, and warranty card.</li>
+      {% else %}
+        <li>{{ product_copy }}</li>
+    {% endcase %}
+  </ul>
+</section>
+{% schema %}
+{
+  "name": "MONAURO main product",
+  "settings": [
+    { "type": "text", "id": "info_heading", "label": "Info heading", "default": "Designed as a short daily wellness routine." }
+  ]
+}
+{% endschema %}
