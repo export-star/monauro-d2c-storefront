@@ -10,7 +10,7 @@
   <section class="cart-content">
     <div class="page-shell">
       {% if cart.item_count > 0 %}
-        <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
+        {% form 'cart', cart, class: 'cart-form', id: 'cart' %}
           <div class="cart-layout">
             <div class="cart-lines">
               {% for item in cart.items %}
@@ -43,15 +43,18 @@
               <div class="cart-summary__subtotal"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div>
               <p class="cart-summary__shipping">Shipping and taxes are calculated at checkout. Free shipping applies to orders over $99.</p>
               <label class="cart-note"><span>Order note</span><textarea name="note" rows="3" placeholder="Optional">{{ cart.note }}</textarea></label>
-              <button class="btn btn-outline cart-update" type="submit" name="update">Update cart</button>
-              <button class="btn btn-primary cart-checkout" type="submit" name="checkout">Secure checkout</button>
+              <div class="cart-summary__secondary-actions">
+                <input class="btn btn-outline cart-update" type="submit" name="update" value="Update quantities">
+                <button class="btn btn-outline cart-clear" type="submit" formaction="{{ routes.cart_clear_url }}" formmethod="post" formnovalidate>Clear cart</button>
+              </div>
+              <input class="btn btn-primary cart-checkout" type="submit" name="checkout" value="Secure checkout">
               <div class="cart-trust">
                 <p><strong>30-day risk-free trial</strong><span>Returns and exchanges</span></p>
                 <p><strong>365-day warranty</strong><span>Product warranty</span></p>
               </div>
             </aside>
           </div>
-        </form>
+        {% endform %}
         <a class="cart-continue" href="{{ routes.all_products_collection_url }}">Continue shopping</a>
       {% else %}
         <div class="empty-state cart-empty">

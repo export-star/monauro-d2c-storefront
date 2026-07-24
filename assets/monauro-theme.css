@@ -543,6 +543,11 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   padding: 76px 0;
   background: #f7f7f4;
 }
+.product-logic > .product-page-shell {
+  width: 100%;
+  max-width: none;
+  padding-inline: 0;
+}
 .product-logic__panel {
   overflow: hidden;
   border: 1px solid var(--monauro-line);
@@ -556,7 +561,7 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
 .product-logic__visual img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .product-logic__copy {
   display: grid;
@@ -1457,4 +1462,18 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   object-fit: cover;
   object-position: center;
   background: #f4f4f1;
+}
+
+.cart-summary__secondary-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.cart-update,
+.cart-clear,
+.cart-checkout {
+  appearance: none;
+}
+@media (max-width: 520px) {
+  .cart-summary__secondary-actions { grid-template-columns: 1fr; }
 }
