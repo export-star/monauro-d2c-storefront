@@ -1,4 +1,4 @@
-﻿{
+{
   "sections": {
     "hero": { "type": "monauro-hero-video", "settings": { "heading": "Recovery starts here.", "text": "Short wellness routines for heavy legs, screen fatigue, and everyday body tension.", "button_label": "Shop Now", "button_link": "/collections/all" } },
     "matrix": { "type": "monauro-product-matrix" },

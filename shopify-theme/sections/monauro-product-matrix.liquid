@@ -1,4 +1,4 @@
-﻿<section class="section" id="product-matrix">
+<section class="section" id="product-matrix">
   <div class="section-header">
     <p class="eyebrow">{{ section.settings.eyebrow }}</p>
     <h2>{{ section.settings.heading }}</h2>
@@ -17,7 +17,7 @@
       {% assign card_tags = tags[idx] | split: ',' %}
       <a class="product-card" href="{% if product_item != blank %}{{ product_item.url }}{% else %}/products/{{ handle }}{% endif %}">
         <div class="product-card-media">
-          <img src="{{ images[idx] | asset_url }}" alt="{{ title | escape }}">
+          <img src="{{ images[idx] | asset_url }}" alt="{{ title | escape }}" width="1600" height="1600" loading="lazy">
         </div>
         <h3>{% if product_item != blank %}{{ product_item.title }}{% else %}{{ title }}{% endif %}</h3>
         <p>{{ copy[idx] }}</p>
