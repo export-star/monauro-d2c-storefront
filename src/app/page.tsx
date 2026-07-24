@@ -5,27 +5,37 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { products } from "@/data/products";
 import { trustPolicies } from "@/data/policies";
 
+const productMatrixImages: Record<string, string> = {
+  "recoveryair-calf-pro": "/images/home/product-matrix/home-calf-pro.png",
+  "recoveryair-leg-elite": "/images/home/product-matrix/home-leg-elite.png",
+  "relaxiwave-eye-mask": "/images/home/product-matrix/home-eye-mask.png",
+  "back-massage-gun": "/images/home/product-matrix/home-back-massage-gun.png"
+};
 
 const painSolutions = [
   {
-    pain: "Heavy Legs",
-    solution: "Short air-compression routines for calves after sitting, standing, travel, or workouts.",
-    href: "/products/recoveryair-calf-pro"
+    pain: "Digital Eye Strain",
+    solution: "A quiet 15-minute eye-area routine for screen-heavy workdays and evening decompression.",
+    href: "/products/relaxiwave-eye-mask",
+    image: "/images/home/body-signal/signal-eye-strain.png"
   },
   {
     pain: "Full-Leg Fatigue",
     solution: "EMS, heated comfort, and air-bag compression support for broader leg recovery routines.",
-    href: "/products/recoveryair-leg-elite"
+    href: "/products/recoveryair-leg-elite",
+    image: "/images/home/body-signal/signal-leg-fatigue.png"
   },
   {
-    pain: "Digital Eye Strain",
-    solution: "A 15-minute eye-area relaxation routine with vibration, heated comfort, and white noise.",
-    href: "/products/relaxiwave-eye-mask"
+    pain: "Heavy Calves",
+    solution: "Short air-compression and heat routines for calves after sitting, standing, travel, or workouts.",
+    href: "/products/recoveryair-calf-pro",
+    image: "/images/home/body-signal/signal-calf-tightness.png"
   },
   {
     pain: "Back Tension",
-    solution: "Self-use back massage support plus standard massage-gun routines for full-body relaxation.",
-    href: "/products/back-massage-gun"
+    solution: "Self-use back massage support plus standard massage-gun routines for everyday body tension.",
+    href: "/products/back-massage-gun",
+    image: "/images/home/body-signal/signal-back-tension.png"
   }
 ];
 
@@ -75,11 +85,11 @@ export default function HomePage() {
           <SectionTitle
             eyebrow="Product Matrix"
             title="Four devices, one recovery logic."
-            description="Each product is positioned by body area and routine, so shoppers can compare quickly without overclaiming outcomes."
+            description="Each product is positioned by body area and daily routine, so shoppers can compare quickly without overclaiming outcomes."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {products.map((product) => {
-              const image = product.images.find((item) => item.role === "hero") ?? product.images[0];
+              const image = productMatrixImages[product.slug] ?? product.images.find((item) => item.role === "hero")?.src ?? product.images[0]?.src;
 
               return (
                 <FadeIn key={product.slug}>
@@ -87,14 +97,16 @@ export default function HomePage() {
                     className="group block h-full rounded-monauro border border-black/10 bg-[#f7f7f4] p-4 transition duration-300 hover:-translate-y-1 hover:border-monauro-teal hover:bg-white"
                     href={`/products/${product.slug}`}
                   >
-                    <div className="relative aspect-square overflow-hidden rounded-monauro bg-white">
-                      <Image
-                        className="object-contain p-4 transition duration-500 group-hover:scale-[1.04]"
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                      />
+                    <div className="relative aspect-square overflow-hidden rounded-monauro bg-[#d8eef8]">
+                      {image ? (
+                        <Image
+                          className="object-contain p-3 transition duration-500 group-hover:scale-[1.04]"
+                          src={image}
+                          alt={`${product.name} product matrix image`}
+                          fill
+                          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                        />
+                      ) : null}
                     </div>
                     <div className="mt-5">
                       <h3 className="text-xl font-semibold leading-tight text-monauro-ink">{product.name}</h3>
@@ -120,23 +132,32 @@ export default function HomePage() {
           <SectionTitle
             eyebrow="Pain Points / Solutions"
             title="Start from the body signal."
-            description="The homepage guides shoppers by fatigue pattern first, then routes them toward a relevant device page."
+            description="The homepage starts with the fatigue pattern, then routes each shopper toward a relevant product page, guide, or support answer."
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {painSolutions.map((item) => (
               <FadeIn key={item.pain}>
                 <Link
-                  className="group flex h-full flex-col justify-between rounded-monauro border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-monauro-teal hover:bg-[#f9faf7]"
+                  className="group flex h-full flex-col overflow-hidden rounded-monauro border border-black/10 bg-white transition duration-300 hover:-translate-y-1 hover:border-monauro-teal hover:bg-[#f9faf7]"
                   href={item.href}
                 >
-                  <div>
-                    <p className="text-sm font-semibold uppercase text-monauro-orange">Problem</p>
-                    <h3 className="mt-4 text-3xl font-semibold text-monauro-ink">{item.pain}</h3>
-                    <p className="mt-5 text-base leading-7 text-neutral-600">{item.solution}</p>
+                  <div className="relative aspect-square bg-[#d8eef8]">
+                    <Image
+                      className="object-contain p-3 transition duration-500 group-hover:scale-[1.03]"
+                      src={item.image}
+                      alt={`${item.pain} body signal visual`}
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    />
                   </div>
-                  <span className="mt-8 text-sm font-semibold text-monauro-orange transition group-hover:text-monauro-teal">
-                    View matched product
-                  </span>
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="text-sm font-semibold uppercase text-monauro-orange">Problem</p>
+                    <h3 className="mt-4 text-2xl font-semibold text-monauro-ink">{item.pain}</h3>
+                    <p className="mt-4 text-sm leading-6 text-neutral-600">{item.solution}</p>
+                    <span className="mt-auto pt-8 text-sm font-semibold text-monauro-orange transition group-hover:text-monauro-teal">
+                      View matched product
+                    </span>
+                  </div>
                 </Link>
               </FadeIn>
             ))}

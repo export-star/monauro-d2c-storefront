@@ -8,7 +8,7 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product }: ProductCardProps) {
-  const cardImage = product.images.find((image) => image.role === "hero") ?? product.images[0];
+  const cardImage = product.images.find((image) => image.role === "hero" && !/\.(mp4|webm|mov)$/i.test(image.src)) ?? product.images.find((image) => !/\.(mp4|webm|mov)$/i.test(image.src));
 
   return (
     <Link className="rounded-monauro border border-black/10 bg-white p-5 transition hover:-translate-y-1 hover:border-black/25" href={`/products/${product.slug}`}>
@@ -28,7 +28,6 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
       <h3 className="mt-4 text-xl font-semibold">{product.name}</h3>
       <p className="mt-2 text-sm leading-6 text-neutral-600">{product.tagline}</p>
-      <p className="mt-4 text-sm font-bold text-monauro-orange">{product.price}</p>
     </Link>
   );
 }

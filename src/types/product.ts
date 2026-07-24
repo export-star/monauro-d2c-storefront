@@ -15,7 +15,7 @@ export type ProductSpec = {
 export type ProductImage = {
   src: string;
   alt: string;
-  role: "hero" | "gallery" | "detail" | "lifestyle";
+  role: "hero" | "gallery" | "detail" | "lifestyle" | "routine";
 };
 
 export type Product = {

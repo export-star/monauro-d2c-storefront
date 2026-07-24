@@ -150,38 +150,183 @@ export const products: Product[] = [
     imageAlt: "RecoveryAir Leg Elite product image placeholder",
     images: [
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-main-01.jpg",
-        alt: "RecoveryAir Leg Elite product and packaging image",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-01.png",
+        alt: "RecoveryAir Leg Elite hero poster 01",
         role: "hero"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-lifestyle.jpg",
-        alt: "RecoveryAir Leg Elite worn on the leg in a bright recovery scene",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-02.png",
+        alt: "RecoveryAir Leg Elite hero poster 02",
         role: "gallery"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-main-02.jpg",
-        alt: "RecoveryAir Leg Elite product image 2",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-03.png",
+        alt: "RecoveryAir Leg Elite hero poster 03",
         role: "gallery"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-main-03.jpg",
-        alt: "RecoveryAir Leg Elite product image 3",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-04.png",
+        alt: "RecoveryAir Leg Elite hero poster 04",
         role: "gallery"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-detail-01.jpg",
-        alt: "RecoveryAir Leg Elite detail visual 1",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-05.png",
+        alt: "RecoveryAir Leg Elite hero poster 05",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-06.png",
+        alt: "RecoveryAir Leg Elite hero poster 06",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-07.png",
+        alt: "RecoveryAir Leg Elite hero poster 07",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-08.png",
+        alt: "RecoveryAir Leg Elite hero poster 08",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-09.png",
+        alt: "RecoveryAir Leg Elite hero poster 09",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-10.png",
+        alt: "RecoveryAir Leg Elite hero poster 10",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-11.png",
+        alt: "RecoveryAir Leg Elite hero poster 11",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-12.png",
+        alt: "RecoveryAir Leg Elite hero poster 12",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-13.png",
+        alt: "RecoveryAir Leg Elite hero poster 13",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-14.png",
+        alt: "RecoveryAir Leg Elite hero poster 14",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-hero-15.png",
+        alt: "RecoveryAir Leg Elite hero poster 15",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-use-scene.png",
+        alt: "RecoveryAir Leg Elite use scene",
+        role: "lifestyle"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-01.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 01",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-02.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 02",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-03.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 03",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-04.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 04",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-05.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 05",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-routine-06.png",
+        alt: "RecoveryAir Leg Elite recovery routine visual 06",
+        role: "routine"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-feature-01.png",
+        alt: "RecoveryAir Leg Elite feature banner 01",
         role: "detail"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-detail-02.jpg",
-        alt: "RecoveryAir Leg Elite detail visual 2",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-feature-02.png",
+        alt: "RecoveryAir Leg Elite feature banner 02",
         role: "detail"
       },
       {
-        src: "/images/products/recoveryair-leg-elite/leg-elite-detail-03.jpg",
-        alt: "RecoveryAir Leg Elite detail visual 3",
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-feature-03.png",
+        alt: "RecoveryAir Leg Elite feature banner 03",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-01.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 01",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-02.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 02",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-03.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 03",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-04.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 04",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-05.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 05",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-06.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 06",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-07.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 07",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-08.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 08",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-09.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 09",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-10.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 10",
+        role: "detail"
+      },
+      {
+        src: "/images/products/recoveryair-leg-elite/page-assets/ml01-more-11.png",
+        alt: "RecoveryAir Leg Elite additional benefit visual 11",
         role: "detail"
       }
     ],
@@ -229,153 +374,68 @@ export const products: Product[] = [
         role: "hero"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-00.jpg",
-        alt: "RelaxiWave Eye Mask main product image 00",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-01.png",
+        alt: "RelaxiWave Eye Mask hero poster 01",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-01.png",
-        alt: "RelaxiWave Eye Mask main product image 01",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-02.png",
+        alt: "RelaxiWave Eye Mask hero poster 02",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-02.png",
-        alt: "RelaxiWave Eye Mask main product image 02",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-03.png",
+        alt: "RelaxiWave Eye Mask hero poster 03",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-03.png",
-        alt: "RelaxiWave Eye Mask main product image 03",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-04.png",
+        alt: "RelaxiWave Eye Mask hero poster 04",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-05.jpg",
-        alt: "RelaxiWave Eye Mask main product image 05",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-05.png",
+        alt: "RelaxiWave Eye Mask hero poster 05",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-07.jpg",
-        alt: "RelaxiWave Eye Mask main product image 07",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-06.png",
+        alt: "RelaxiWave Eye Mask hero poster 06",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-08.jpg",
-        alt: "RelaxiWave Eye Mask main product image 08",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-hero-07.png",
+        alt: "RelaxiWave Eye Mask hero poster 07",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-09.jpg",
-        alt: "RelaxiWave Eye Mask main product image 09",
-        role: "gallery"
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-use-scene.png",
+        alt: "RelaxiWave Eye Mask use scene",
+        role: "lifestyle"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-10.jpg",
-        alt: "RelaxiWave Eye Mask main product image 10",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-11.jpg",
-        alt: "RelaxiWave Eye Mask main product image 11",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-12.png",
-        alt: "RelaxiWave Eye Mask main product image 12",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-13.png",
-        alt: "RelaxiWave Eye Mask main product image 13",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-14.png",
-        alt: "RelaxiWave Eye Mask main product image 14",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-15.png",
-        alt: "RelaxiWave Eye Mask main product image 15",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-16.png",
-        alt: "RelaxiWave Eye Mask main product image 16",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-17.png",
-        alt: "RelaxiWave Eye Mask main product image 17",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-18.png",
-        alt: "RelaxiWave Eye Mask main product image 18",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-19.png",
-        alt: "RelaxiWave Eye Mask main product image 19",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-20.png",
-        alt: "RelaxiWave Eye Mask main product image 20",
-        role: "gallery"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-01-2.png",
-        alt: "RelaxiWave Eye Mask detail visual 01 alternate",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-feature-01.png",
+        alt: "RelaxiWave Eye Mask feature banner 01",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-01.png",
-        alt: "RelaxiWave Eye Mask detail visual 01",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-feature-02.png",
+        alt: "RelaxiWave Eye Mask feature banner 02",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-02.png",
-        alt: "RelaxiWave Eye Mask detail visual 02",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-01.png",
+        alt: "RelaxiWave Eye Mask additional benefit visual 01",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-03.png",
-        alt: "RelaxiWave Eye Mask detail visual 03",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-02.png",
+        alt: "RelaxiWave Eye Mask additional benefit visual 02",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-04.png",
-        alt: "RelaxiWave Eye Mask detail visual 04",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-05.png",
-        alt: "RelaxiWave Eye Mask detail visual 05",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-06.png",
-        alt: "RelaxiWave Eye Mask detail visual 06",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-07.png",
-        alt: "RelaxiWave Eye Mask detail visual 07",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-08.png",
-        alt: "RelaxiWave Eye Mask detail visual 08",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-09.png",
-        alt: "RelaxiWave Eye Mask detail visual 09",
-        role: "detail"
-      },
-      {
-        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-11.png",
-        alt: "RelaxiWave Eye Mask detail visual 11",
+        src: "/images/products/relaxiwave-eye-mask/page-assets/me01-more-03.png",
+        alt: "RelaxiWave Eye Mask additional benefit visual 03",
         role: "detail"
       }
     ],
@@ -418,38 +478,178 @@ export const products: Product[] = [
     imageAlt: "Back Massage Gun product image placeholder",
     images: [
       {
-        src: "/images/products/back-massage-gun/massage-gun-green-kit.png",
-        alt: "Back Massage Gun green product with packaging and attachments",
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-01.png",
+        alt: "Back Massage Gun hero poster 01",
         role: "hero"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-main-01.png",
-        alt: "Back Massage Gun product image 1",
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-02.png",
+        alt: "Back Massage Gun hero poster 02",
         role: "gallery"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-main-02.png",
-        alt: "Back Massage Gun product image 2",
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-03.png",
+        alt: "Back Massage Gun hero poster 03",
         role: "gallery"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-main-03.png",
-        alt: "Back Massage Gun product image 3",
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-04.png",
+        alt: "Back Massage Gun hero poster 04",
         role: "gallery"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-detail-01.png",
-        alt: "Back Massage Gun detail visual 1",
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-05.png",
+        alt: "Back Massage Gun hero poster 05",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-06.png",
+        alt: "Back Massage Gun hero poster 06",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-07.png",
+        alt: "Back Massage Gun hero poster 07",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-08.png",
+        alt: "Back Massage Gun hero poster 08",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-09.png",
+        alt: "Back Massage Gun hero poster 09",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-10.png",
+        alt: "Back Massage Gun hero poster 10",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-11.png",
+        alt: "Back Massage Gun hero poster 11",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-12.png",
+        alt: "Back Massage Gun hero poster 12",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-13.png",
+        alt: "Back Massage Gun hero poster 13",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-14.png",
+        alt: "Back Massage Gun hero poster 14",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-15.png",
+        alt: "Back Massage Gun hero poster 15",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-16.png",
+        alt: "Back Massage Gun hero poster 16",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-17.png",
+        alt: "Back Massage Gun hero poster 17",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-18.png",
+        alt: "Back Massage Gun hero poster 18",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-19.png",
+        alt: "Back Massage Gun hero poster 19",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-20.png",
+        alt: "Back Massage Gun hero poster 20",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-21.png",
+        alt: "Back Massage Gun hero poster 21",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-22.png",
+        alt: "Back Massage Gun hero poster 22",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-23.png",
+        alt: "Back Massage Gun hero poster 23",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-24.png",
+        alt: "Back Massage Gun hero poster 24",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-25.png",
+        alt: "Back Massage Gun hero poster 25",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-hero-26.png",
+        alt: "Back Massage Gun hero poster 26",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-use-scene.png",
+        alt: "Back Massage Gun use scene",
+        role: "lifestyle"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-feature-01.png",
+        alt: "Back Massage Gun feature banner 01",
         role: "detail"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-detail-02.jpg",
-        alt: "Back Massage Gun detail visual 2",
+        src: "/images/products/back-massage-gun/page-assets/mg01-feature-02.png",
+        alt: "Back Massage Gun feature banner 02",
         role: "detail"
       },
       {
-        src: "/images/products/back-massage-gun/massage-gun-detail-03.jpg",
-        alt: "Back Massage Gun detail visual 3",
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-01.png",
+        alt: "Back Massage Gun additional benefit visual 01",
+        role: "detail"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-02.png",
+        alt: "Back Massage Gun additional benefit visual 02",
+        role: "detail"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-03.png",
+        alt: "Back Massage Gun additional benefit visual 03",
+        role: "detail"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-04.png",
+        alt: "Back Massage Gun additional benefit visual 04",
+        role: "detail"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-05.png",
+        alt: "Back Massage Gun additional benefit visual 05",
+        role: "detail"
+      },
+      {
+        src: "/images/products/back-massage-gun/page-assets/mg01-more-06.png",
+        alt: "Back Massage Gun additional benefit visual 06",
         role: "detail"
       }
     ],
