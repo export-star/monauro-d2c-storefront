@@ -92,6 +92,7 @@
     });
 
     form.addEventListener('submit', async (event) => {
+      if (event.submitter?.matches('[data-buy-now]')) return;
       if (!variantInput?.value || addButton?.disabled) return;
       event.preventDefault();
       setPurchaseBusy(true, 'cart');
@@ -102,19 +103,6 @@
       } catch (error) {
         setPurchaseBusy(false);
         setPurchaseStatus(error.message || 'This item could not be added. Please try again.', true);
-      }
-    });
-
-    buyButton?.addEventListener('click', async () => {
-      if (!variantInput?.value || buyButton.disabled) return;
-      setPurchaseBusy(true, 'checkout');
-      setPurchaseStatus('Adding this item and opening secure checkout...');
-      try {
-        await addSelectedVariant();
-        navigateTop(`${root}checkout`);
-      } catch (error) {
-        setPurchaseBusy(false);
-        setPurchaseStatus(error.message || 'Secure checkout could not be opened. Please try again.', true);
       }
     });
 
