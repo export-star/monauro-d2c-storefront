@@ -15,6 +15,7 @@
   const postCart = async (endpoint, payload) => {
     const response = await fetch(`${root}cart/${endpoint}.js`, {
       method: 'POST',
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'

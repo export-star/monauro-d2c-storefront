@@ -364,6 +364,13 @@ details.story-card p { color: var(--monauro-muted); line-height: 1.7; }
   width: 100%;
   min-height: 46px;
 }
+.product-purchase__status {
+  margin: 12px 0 0;
+  color: var(--monauro-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.product-purchase__status.is-error { color: #a33122; }
 .product-purchase__add:disabled,
 .product-purchase__buy-now:disabled {
   cursor: not-allowed;
