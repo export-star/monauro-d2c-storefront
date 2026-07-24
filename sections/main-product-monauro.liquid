@@ -4,28 +4,33 @@
   assign hero_images = ''
   assign model = product.handle
   assign product_copy = product.description | strip_html
+  assign hero_heading = product.title
 
   case product.handle
     when 'recoveryair-calf-pro'
       assign model = 'MC06'
       assign hero_video = 'home-hero-01.mp4'
       assign hero_images = 'mc06-hero-01.webp|mc06-hero-02.webp|mc06-hero-03.webp'
-      assign product_copy = 'Rhythmic air compression, 42℃ / 45℃ heated surface support, and a short 15-minute auto-off routine for heavy, tight calves.'
+      assign hero_heading = 'Reset heavy, tight calves with air compression, heat, and a 15-minute recovery routine.'
+      assign product_copy = 'A calf-focused wellness device for daily relaxation routines after sitting, standing, travel, or workouts. It uses rhythmic air compression, heated surface support, and adjustable massage intensity for the lower leg.'
     when 'monauro-recoveryair-leg-elite'
       assign model = 'ML01'
       assign hero_video = 'ml01-product-video.mp4'
       assign hero_images = 'ml01-hero-01.webp|ml01-hero-02.webp|ml01-hero-03.webp|ml01-hero-04.webp|ml01-hero-05.webp|ml01-hero-06.webp|ml01-hero-07.webp|ml01-hero-08.webp|ml01-hero-09.webp|ml01-hero-10.webp|ml01-hero-11.webp|ml01-hero-12.webp|ml01-hero-13.webp|ml01-hero-14.webp|ml01-hero-15.webp'
-      assign product_copy = 'EMS massage, heated comfort, and air-bag compression support for broader leg recovery routines.'
+      assign hero_heading = 'EMS massage, heat, and air compression support for leg recovery routines.'
+      assign product_copy = 'A leg-focused MONAURO wellness device for users who want EMS massage, heated comfort, and air-compression support in one recovery routine.'
     when 'relaxiwave-eye-mask'
       assign model = 'ME01'
       assign hero_video = 'me01-product-video.mp4'
       assign hero_images = 'me01-hero-01.webp|me01-hero-02.webp|me01-hero-03.webp|me01-hero-04.webp|me01-hero-05.webp|me01-hero-06.webp|me01-hero-07.webp'
-      assign product_copy = 'A 15-minute soothing routine for tired eyes with vibration massage, heated comfort, and built-in white noise.'
+      assign hero_heading = 'A 15-minute soothing massage routine for tired eyes.'
+      assign product_copy = 'An eye-focused MONAURO wellness device that supports a short relaxation routine with vibration massage, heated comfort, and built-in white noise.'
     when 'back-massage-gun'
       assign model = 'MG01'
       assign hero_video = 'mg01-product-video.mp4'
       assign hero_images = 'mg01-hero-01.webp|mg01-hero-02.webp|mg01-hero-03.webp|mg01-hero-04.webp|mg01-hero-05.webp|mg01-hero-06.webp|mg01-hero-07.webp|mg01-hero-08.webp|mg01-hero-09.webp|mg01-hero-10.webp|mg01-hero-11.webp|mg01-hero-12.webp|mg01-hero-13.webp|mg01-hero-14.webp|mg01-hero-15.webp|mg01-hero-16.webp|mg01-hero-17.webp|mg01-hero-18.webp|mg01-hero-19.webp|mg01-hero-20.webp|mg01-hero-21.webp|mg01-hero-22.webp|mg01-hero-23.webp|mg01-hero-24.webp|mg01-hero-25.webp|mg01-hero-26.webp'
-      assign product_copy = 'Four speed levels, five massage heads, and an extended form for independent back massage and full-body routines.'
+      assign hero_heading = 'Independent back massage support without needing another person.'
+      assign product_copy = 'A full-body MONAURO massage gun designed for standard percussive massage routines, with a distinctive self-use back massage form.'
   endcase
 
   assign hero_image_list = hero_images | split: '|'
@@ -49,7 +54,7 @@
 
     {% for image_name in hero_image_list %}
       <button class="product-showcase__slide{% if hero_video == blank and forloop.first %} is-active{% endif %}" type="button" data-slide data-slide-index="{{ slide_index }}" data-zoom-source="{{ image_name | asset_url }}" aria-label="Open {{ product.title | escape }} image {{ forloop.index }}">
-        <img class="product-showcase__asset product-showcase__asset--contain" src="{{ image_name | asset_url }}" alt="{{ product.title | escape }} product view {{ forloop.index }}" width="1800" height="1800" {% unless forloop.first and hero_video == blank %}loading="lazy"{% endunless %}>
+        <img class="product-showcase__asset product-showcase__asset--contain" src="{{ image_name | asset_url }}" alt="{{ product.title | escape }} product view {{ forloop.index }}" width="1800" height="1013" {% unless forloop.first and hero_video == blank %}loading="lazy"{% endunless %}>
       </button>
       {% assign slide_index = slide_index | plus: 1 %}
     {% endfor %}
@@ -66,7 +71,7 @@
   <div class="product-purchase">
     <div class="product-purchase__intro">
       <p class="eyebrow">{{ product.title }} / {{ model }}</p>
-      <h1>{{ product.title }}</h1>
+      <h1>{{ hero_heading }}</h1>
       <p>{{ product_copy }}</p>
     </div>
 

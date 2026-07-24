@@ -1,0 +1,36 @@
+{% if product.handle == 'recoveryair-calf-pro' %}
+  {% assign questions = 'Routine logic|Contact pattern|Use experience|Portability|Claim boundary' | split: '|' %}
+  {% assign ordinary = 'Generic squeeze session|Broad pressure around the limb|Often feels like a blood-pressure cuff|Varies by device|Overly broad pressure promise' | split: '|' %}
+  {% assign monauro = '15-minute calf-focused recovery routine|Three air-compression groups that inflate and deflate in sequence|Designed as a warmer, more intentional calf reset routine|Approx. 500g with Type-C charging|A short routine built around stated specifications and conservative wellness language' | split: '|' %}
+
+  <section class="product-comparison">
+    <div class="page-shell">
+      <div class="product-section-heading">
+        <p class="product-kicker">A clearer recovery routine</p>
+        <h2>From generic pressure to a structured calf reset.</h2>
+        <p>This comparison explains the product position using confirmed specifications and conservative wellness language.</p>
+      </div>
+      <div class="comparison-table" role="table" aria-label="RecoveryAir Calf Pro comparison">
+        <div class="comparison-row comparison-row--header" role="row">
+          <span role="columnheader">Compare</span>
+          <span role="columnheader">Ordinary compression</span>
+          <span role="columnheader">RecoveryAir Calf Pro</span>
+        </div>
+        {% for question in questions %}
+          <div class="comparison-row" role="row">
+            <strong role="rowheader">{{ question }}</strong>
+            <span role="cell">{{ ordinary[forloop.index0] }}</span>
+            <span role="cell">{{ monauro[forloop.index0] }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO comparison",
+  "settings": []
+}
+{% endschema %}

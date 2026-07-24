@@ -1,4 +1,90 @@
-<section class="section"><div class="section-header"><h1>{{ collection.title | default: 'Products' }}</h1><p>{{ collection.description | strip_html }}</p></div><div class="product-grid">{% for product in collection.products %}<a class="product-card" href="{{ product.url }}"><div class="product-card-media">{% if product.featured_image %}{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}{% endif %}</div><h3>{{ product.title }}</h3><p>{{ product.price | money }}</p></a>{% else %}<p>No products found.</p>{% endfor %}</div></section>
+{% liquid
+  assign handles = 'recoveryair-calf-pro,monauro-recoveryair-leg-elite,relaxiwave-eye-mask,back-massage-gun' | split: ','
+  assign fallback_titles = 'RecoveryAir Calf Pro|RecoveryAir Leg Elite|RelaxiWave Eye Mask|Back Massage Gun' | split: '|'
+  assign images = 'home-calf-pro.png|home-leg-elite.png|home-eye-mask.png|home-back-massage-gun.png' | split: '|'
+  assign descriptions = 'Reset heavy, tight calves with air compression, heat, and a 15-minute recovery routine.|EMS massage, heated comfort, and air-bag compression support for leg recovery routines.|A 15-minute soothing massage routine for tired eyes.|Independent back massage support without needing another person.' | split: '|'
+  assign tags = 'Heavy Legs,Calf Tightness|Full Leg Recovery,Travel Recovery|Digital Eye Strain,Desk Fatigue|Back Tension,Post-Workout Recovery' | split: '|'
+  assign areas = 'Calves|Full Legs|Eyes|Back / Body' | split: '|'
+%}
+
+<main class="shop-page">
+  <section class="shop-intro">
+    <div class="page-shell">
+      <p class="shop-badge">Shop all devices</p>
+      <div class="shop-intro__layout">
+        <div>
+          <h1>Shop MONAURO Recovery Devices</h1>
+          <p>Browse the current MONAURO product line by body area and recovery routine. Each product page keeps confirmed specifications clear and easy to compare.</p>
+        </div>
+        <aside class="shop-policy" aria-label="Store policies">
+          <p class="shop-policy__title">Store policies</p>
+          <div class="shop-policy__grid">
+            <p><strong>Free shipping</strong><span>Orders over $99</span></p>
+            <p><strong>30-day risk-free trial</strong><span>Returns and exchanges</span></p>
+            <p><strong>365-day warranty</strong><span>Product warranty</span></p>
+          </div>
+        </aside>
+      </div>
+      <div class="shop-filter-row" aria-label="Product categories">
+        <span>Eyes</span><span>Back</span><span>Calves</span><span>Full Legs</span><span class="is-stock">In stock</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-current">
+    <div class="page-shell">
+      <div class="shop-section-heading">
+        <div>
+          <p class="product-kicker">Current line</p>
+          <h2>Four products, one recovery system.</h2>
+          <p>Compare the four current devices by body area and daily routine.</p>
+        </div>
+        <a class="btn btn-secondary" href="{{ routes.root_url }}#product-matrix">Find by routine</a>
+      </div>
+      <div class="product-grid shop-product-grid">
+        {% for handle in handles %}
+          {% assign idx = forloop.index0 %}
+          {% assign product_item = all_products[handle] %}
+          {% assign card_tags = tags[idx] | split: ',' %}
+          <a class="product-card shop-product-card" href="{% if product_item != blank %}{{ product_item.url }}{% else %}/products/{{ handle }}{% endif %}">
+            <div class="product-card-media">
+              <img src="{{ images[idx] | asset_url }}" alt="{{ fallback_titles[idx] | escape }} product image" width="1600" height="1600" loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}">
+            </div>
+            <div class="tag-row">{% for tag in card_tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+            <h3>{% if product_item != blank %}{{ product_item.title }}{% else %}{{ fallback_titles[idx] }}{% endif %}</h3>
+            <p>{{ descriptions[idx] }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-by-area">
+    <div class="page-shell">
+      <div class="shop-section-heading">
+        <div>
+          <p class="product-kicker">Buying path</p>
+          <h2>Shop by body area.</h2>
+          <p>Move directly to the device that matches the recovery area.</p>
+        </div>
+      </div>
+      <div class="shop-area-grid">
+        {% for handle in handles %}
+          {% assign idx = forloop.index0 %}
+          {% assign product_item = all_products[handle] %}
+          <a href="{% if product_item != blank %}{{ product_item.url }}{% else %}/products/{{ handle }}{% endif %}">
+            <span>{{ areas[idx] }}</span>
+            <strong>{% if product_item != blank %}{{ product_item.title }}{% else %}{{ fallback_titles[idx] }}{% endif %}</strong>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
 {% schema %}
-{ "name": "Main collection" }
+{
+  "name": "MONAURO shop page",
+  "settings": []
+}
 {% endschema %}
