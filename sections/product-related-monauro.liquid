@@ -1,0 +1,41 @@
+<section class="product-related">
+  <div class="product-page-shell">
+    <header class="product-section-heading">
+      <p class="product-kicker">Recovery system</p>
+      <h2>Build the next routine around the rest of the body.</h2>
+      <p>Compare by body area and routine, then open the product that fits the recovery moment.</p>
+    </header>
+
+    {% assign handles = 'recoveryair-calf-pro|monauro-recoveryair-leg-elite|relaxiwave-eye-mask|back-massage-gun' | split: '|' %}
+    {% assign titles = 'RecoveryAir Calf Pro|RecoveryAir Leg Elite|RelaxiWave Eye Mask|Back Massage Gun' | split: '|' %}
+    {% assign images = 'home-calf-pro.png|home-leg-elite.png|home-eye-mask.png|home-back-massage-gun.png' | split: '|' %}
+    {% assign descriptions = 'Air compression, heated comfort, and a 15-minute calf routine.|EMS massage, heat, and air-bag compression for broader leg routines.|Vibration massage, heated comfort, and white noise for tired eyes.|Independent back reach and five massage heads for full-body routines.' | split: '|' %}
+
+    <div class="product-related__grid">
+      {% assign shown = 0 %}
+      {% for handle in handles %}
+        {% unless handle == product.handle %}
+          {% if shown < 3 %}
+            {% assign index = forloop.index0 %}
+            {% assign related_product = all_products[handle] %}
+            <a class="product-related__card" href="{% if related_product != blank %}{{ related_product.url }}{% else %}/products/{{ handle }}{% endif %}">
+              <div class="product-related__media">
+                <img src="{{ images[index] | asset_url }}" alt="{{ titles[index] | escape }}" width="1600" height="1600" loading="lazy">
+              </div>
+              <h3>{% if related_product != blank %}{{ related_product.title }}{% else %}{{ titles[index] }}{% endif %}</h3>
+              <p>{{ descriptions[index] }}</p>
+            </a>
+            {% assign shown = shown | plus: 1 %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MONAURO related products",
+  "settings": []
+}
+{% endschema %}

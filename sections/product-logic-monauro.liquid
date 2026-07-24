@@ -1,0 +1,67 @@
+{% liquid
+  assign banner_image = ''
+  assign kicker = 'Product logic'
+  assign heading = ''
+  assign description = ''
+  assign stats = ''
+
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign banner_image = 'mc06-feature-banner-01.webp'
+      assign kicker = 'Simple science'
+      assign heading = 'Rhythmic compression, heat, short routines.'
+      assign description = 'Rhythmic air compression, two massage modes, 42℃ / 45℃ heated surface support, and a 15-minute auto-off session define the core routine.'
+      assign stats = '15::min auto-off|2::massage modes|42℃ / 45℃::heat levels|100 KPa::manual-stated pressure'
+    when 'monauro-recoveryair-leg-elite'
+      assign banner_image = 'ml01-feature-01.webp'
+      assign heading = 'Wrap. Choose. Recover.'
+      assign description = 'A broader leg routine built around comfortable placement, EMS massage, heat, and air-bag compression support.'
+      assign stats = 'ML01::model|2::color options|50℃ / 55℃::heat levels|<60 min::maximum usage'
+    when 'relaxiwave-eye-mask'
+      assign banner_image = 'me01-feature-01.webp'
+      assign heading = 'Settle. Cover. Reset.'
+      assign description = 'A short eye-area routine built around vibration massage, heated comfort, white noise, and three massage modes.'
+      assign stats = 'ME01::model|3::massage modes|38℃ / 42℃::heat levels|10::massage points'
+    when 'back-massage-gun'
+      assign banner_image = 'mg01-feature-01.webp'
+      assign heading = 'Target. Attach. Ease.'
+      assign description = 'Independent back reach, four speed levels, five included massage heads, and a 15-minute smart timer support a controlled full-body routine.'
+      assign stats = 'MG01::model|4::speed levels|5::massage heads|6 mm::amplitude'
+  endcase
+  assign stat_list = stats | split: '|'
+%}
+
+{% if heading != blank %}
+  <section class="product-logic">
+    <div class="product-page-shell">
+      <div class="product-logic__panel">
+        <div class="product-logic__visual">
+          <img src="{{ banner_image | asset_url }}" alt="{{ product.title | escape }} product feature" width="1800" height="900" loading="lazy">
+        </div>
+        <div class="product-logic__copy">
+          <div>
+            <p class="product-kicker">{{ kicker }}</p>
+            <h2>{{ heading }}</h2>
+          </div>
+          <p>{{ description }}</p>
+        </div>
+        <div class="product-logic__stats">
+          {% for stat in stat_list %}
+            {% assign parts = stat | split: '::' %}
+            <div>
+              <strong>{{ parts[0] }}</strong>
+              <span>{{ parts[1] }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO product logic",
+  "settings": []
+}
+{% endschema %}

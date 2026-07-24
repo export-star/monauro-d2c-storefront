@@ -1,0 +1,61 @@
+{% liquid
+  assign section_title = ''
+  assign section_text = ''
+  assign outcomes = ''
+  assign scene_image = ''
+
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign section_title = 'Relief and recovery without a complicated setup.'
+      assign section_text = 'The airbag massage-head structure is designed for post-exercise calf discomfort and for people who sit or stand for long periods. Compression and heat support a short lower-leg relaxation routine.'
+      assign outcomes = 'Deep calf fatigue::A focused calf routine after runs, lifting, court sports, or long cardio sessions.|Long-day heaviness::For sitting, standing, commuting, or desk-heavy days when calves feel tight or heavy.|Hands-free routine::Secure the straps, choose a mode, and let the 15-minute auto-off close the session.'
+      assign scene_image = 'mc06-scene-01.webp'
+    when 'monauro-recoveryair-leg-elite'
+      assign section_title = 'A broader leg routine for travel, training, and long days.'
+      assign section_text = 'EMS massage, heated comfort, and air-bag compression support broader leg recovery routines after travel, training, or long days.'
+      assign outcomes = 'Full-leg recovery::For users who want a broader leg routine than a calf-only device.|Travel recovery::For post-travel leg heaviness and long days away from a normal recovery setup.|At-home reset::For a more settled recovery session at home after work or activity.|Giftable wellness::For shoppers comparing a broader leg device within the MONAURO recovery line.'
+      assign scene_image = 'ml01-use-scene.webp'
+    when 'relaxiwave-eye-mask'
+      assign section_title = 'A calm routine for screen-heavy days and evening decompression.'
+      assign section_text = 'Vibration massage, heated comfort, built-in white noise, and a 15-minute soothing routine support eye-area relaxation after screen-heavy days.'
+      assign outcomes = 'Digital eye strain::For a quieter recovery ritual after long screen time.|Desk fatigue::For workdays when eyes and attention feel tired.|Evening wind-down::For a lower-stimulation routine before rest.|Travel rest::For portable comfort moments during trips or long workdays.'
+      assign scene_image = 'me01-use-scene.webp'
+    when 'back-massage-gun'
+      assign section_title = 'Focused body relaxation for workdays and post-workout routines.'
+      assign section_text = 'Independent back massage support, four speed levels, and five massage heads help users build a focused full-body relaxation routine.'
+      assign outcomes = 'Back tension::For focused relaxation around the back after long workdays.|Desk fatigue::For simple body-care routines around sedentary work.|Post-workout recovery::For a targeted relaxation step after training.|Attachment-based focus::Five included massage heads support different body-care routines.'
+      assign scene_image = 'mg01-use-scene.webp'
+  endcase
+  assign outcome_list = outcomes | split: '|'
+%}
+
+{% if section_title != blank %}
+  <section class="product-use-cases">
+    <div class="product-page-shell product-use-cases__grid">
+      <div>
+        <p class="product-kicker">Use case logic</p>
+        <h2>{{ section_title }}</h2>
+        <p class="product-use-cases__intro">{{ section_text }}</p>
+        <div class="product-use-cases__items">
+          {% for outcome in outcome_list %}
+            {% assign parts = outcome | split: '::' %}
+            <div>
+              <h3>{{ parts[0] }}</h3>
+              <p>{{ parts[1] }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <figure class="product-use-cases__visual">
+        <img src="{{ scene_image | asset_url }}" alt="{{ product.title | escape }} use scene" width="1800" height="1800" loading="lazy">
+      </figure>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO use cases",
+  "settings": []
+}
+{% endschema %}

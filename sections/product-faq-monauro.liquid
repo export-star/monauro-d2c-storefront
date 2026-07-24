@@ -1,0 +1,41 @@
+{% liquid
+  assign faq_data = ''
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign faq_data = 'Does this replace medical treatment?::No. RecoveryAir Calf Pro is a home electronic wellness device, not a medical device. It is not intended for diagnosis or treatment and should not replace professional medical advice.|How do I use RecoveryAir Calf Pro?::Place the massager on your calf, secure the Velcro straps, adjust to a comfortable tightness, then select the massage intensity and heat setting. Remove jewelry before use and do not operate it with wet hands.|Can I use it while charging?::No. The manual states that the device cannot be powered on while charging.|Is it waterproof?::No. The product is not waterproof and should not be splashed with liquid or used on wet skin.|What is included in the box?::The main device, charging cable, user manual, warranty card, and Certificate of Conformity are included.|What is the warranty policy?::RecoveryAir Calf Pro includes a 365-day warranty period.'
+    when 'monauro-recoveryair-leg-elite'
+      assign faq_data = 'What area is RecoveryAir Leg Elite designed for?::RecoveryAir Leg Elite is positioned for leg recovery routines with EMS massage, heated comfort, and air-bag compression.|What are the heat levels?::The heat levels are low 50℃ and high 55℃.|How long can it run?::The maximum usage time is less than 60 minutes on the highest setting, with approximately 3 hours required for charging.|Which colors are available?::The color options are Calm Purple and Electric Green.|What is included in the box?::The main device, charging cable, user manual, and warranty card are included.'
+    when 'relaxiwave-eye-mask'
+      assign faq_data = 'What is RelaxiWave Eye Mask used for?::RelaxiWave Eye Mask is positioned for eye-area relaxation routines with vibration massage, heated comfort, and built-in white noise.|What massage modes are available?::The modes are soothing mode, vitality mode, and sleep mode.|What are the heat levels?::The heat levels are low 38℃ ±2℃ and high 42℃ ±2℃.|How long does it charge and run?::Charging time is approximately 2.5 hours, and maximum usage time is less than 75 minutes on the highest setting.|What is included in the box?::The main device, charging cable, user manual, and warranty card are included.'
+    when 'back-massage-gun'
+      assign faq_data = 'What makes Back Massage Gun different?::It is a full-body massage gun with an extended self-use back massage form, so users can massage the back without relying on another person.|What speed levels are available?::The speed levels are Level 1 2000R, Level 2 2600R, Level 3 3200R, and Level 4 800R.|Which massage heads are included?::Five massage heads are included: ball, bullet, U-shaped, wedge, and flat.|What are the motor and performance details?::The product data lists a brushless motor, 6mm amplitude, 10kg stall force, 55dB noise level, and a 15-minute smart timer.|What is included in the box?::The main device, user manual, charging cable, and warranty card are included.'
+  endcase
+  assign faqs = faq_data | split: '|'
+%}
+
+{% if faq_data != blank %}
+  <section class="product-faq">
+    <div class="product-page-shell product-faq__layout">
+      <header>
+        <p class="product-kicker">FAQ</p>
+        <h2>Usage, safety, and product questions.</h2>
+      </header>
+      <div class="product-faq__items">
+        {% for faq in faqs %}
+          {% assign parts = faq | split: '::' %}
+          <details>
+            <summary><span>{{ parts[0] }}</span><span aria-hidden="true">+</span></summary>
+            <p>{{ parts[1] }}</p>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO product FAQ",
+  "settings": []
+}
+{% endschema %}

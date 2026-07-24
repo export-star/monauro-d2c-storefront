@@ -1,0 +1,43 @@
+{% liquid
+  assign routine_data = ''
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign routine_data = 'Relax::Fasten the device comfortably and start with the lower intensity routine for daily relaxation.::mc06-routine-relax-01.webp::mc06-routine-relax-02.webp|Activate::Use rhythmic air compression and heated surface support to make the session feel clear and structured.::mc06-routine-activate-01.webp::mc06-routine-activate-02.webp|Realign::Let the 15-minute auto-off close the session, then remove the device and return to movement.::mc06-routine-realign-01.webp::mc06-routine-realign-02.webp'
+    when 'monauro-recoveryair-leg-elite'
+      assign routine_data = 'Wrap::Position the device comfortably for a broader leg recovery session.::ml01-routine-01.webp::ml01-routine-02.webp|Choose::Choose the routine that fits the recovery moment.::ml01-routine-03.webp::ml01-routine-04.webp|Recover::Complete a focused leg-care session and return to movement.::ml01-routine-05.webp::ml01-routine-06.webp'
+  endcase
+  assign routines = routine_data | split: '|'
+%}
+
+{% if routine_data != blank %}
+  <section class="product-routine">
+    <div class="product-page-shell product-routine__grid">
+      {% for routine in routines %}
+        {% assign parts = routine | split: '::' %}
+        <article class="routine-card">
+          <div class="routine-card__media" data-auto-swap data-auto-swap-interval="1000">
+            <img class="is-active" src="{{ parts[2] | asset_url }}" alt="{{ product.title | escape }} {{ parts[0] | escape }} view one" width="1600" height="2000" loading="lazy">
+            <img src="{{ parts[3] | asset_url }}" alt="{{ product.title | escape }} {{ parts[0] | escape }} view two" width="1600" height="2000" loading="lazy">
+          </div>
+          <details class="routine-card__content">
+            <summary>
+              <span>
+                <span class="routine-card__index">0{{ forloop.index }} / routine</span>
+                <strong>{{ parts[0] }}</strong>
+              </span>
+              <span class="routine-card__toggle" aria-hidden="true">+</span>
+            </summary>
+            <p>{{ parts[1] }}</p>
+          </details>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO routine",
+  "settings": []
+}
+{% endschema %}

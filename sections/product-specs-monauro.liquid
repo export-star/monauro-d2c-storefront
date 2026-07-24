@@ -1,0 +1,48 @@
+{% liquid
+  assign model = ''
+  assign specs_data = ''
+
+  case product.handle
+    when 'recoveryair-calf-pro'
+      assign model = 'MC06'
+      assign specs_data = 'SKU / Model::MC06|Color options::Calm Purple, Vivid Orange, Pale Green, Electric Green|Product dimensions::Approx. 940 × 215 × 60mm|Strap dimensions::Approx. 420 × 50mm|Weight::Approx. 500g / 1.1lbs|Material::ABS|Battery capacity::Lithium battery 2000mAh|Battery voltage::3.7V|Rated voltage / power::5V / 5W|Charging::Type-C, approx. 3 hours|Maximum usage time::<75 minutes on highest setting|Single-session guidance::No more than 15 minutes|Massage modes::Relax and Deep massage|Air pressure::Up to 100 KPa, stated in the manual|Heat levels::42℃ and 45℃|Application area::Calves; the manual also describes arms and thighs, with extension straps required for thighs|Package includes::Main device, charging cable, user manual, warranty card, Certificate of Conformity'
+    when 'monauro-recoveryair-leg-elite'
+      assign model = 'ML01'
+      assign specs_data = 'SKU / Model::ML01|Color options::Calm Purple, Electric Green|Product dimensions::564 × 478 × 4mm|Weight::500g / 1.1lbs|Battery capacity::Lithium battery 3000mAh|Battery voltage::3.7V|Rated voltage / power::5V / 8W|Charging::Approx. 3 hours|Maximum usage time::<60 minutes on highest setting|Heat levels::50℃ and 55℃|Core functions::EMS massage, heated comfort, air-bag compression|Application area::Legs|Package includes::Main device, charging cable, user manual, warranty card'
+    when 'relaxiwave-eye-mask'
+      assign model = 'ME01'
+      assign specs_data = 'SKU / Model::ME01|Color options::Calm Purple, Vivid Orange, Pale Green, Electric Green|Product dimensions::Approx. 700 × 87 × 32mm|Battery capacity::600mAh|Battery voltage::3.7V|Rated voltage / power::5V / 5W|Charging::Approx. 2.5 hours|Maximum usage time::<75 minutes on highest setting|Heat levels::Low 38℃ ±2℃, high 42℃ ±2℃|Massage modes::Soothing, vitality, sleep|Massage points::10-point massage|Audio::Background music, built-in white noise, voice prompts|Application area::Eye area|Package includes::Main device, charging cable, user manual, warranty card'
+    when 'back-massage-gun'
+      assign model = 'MG01'
+      assign specs_data = 'SKU / Model::MG01|Color options::Calm Purple, Vivid Orange, Pale Green, Electric Green|Material::ABS|Main device dimensions::Approx. 140 × 80 × 35mm|Handle dimensions::Approx. 475 × 235 × 45mm|Weight::Main device approx. 255g / 0.56lbs; handle approx. 165g / 0.36lbs|Battery capacity::1000mAh|Battery voltage::7.4V|Rated voltage / power::5V / 20W|Charging::Approx. 2 hours|Maximum usage time::<75 minutes on highest setting|Speed levels::Level 1 2000R, Level 2 2600R, Level 3 3200R, Level 4 800R|Unloaded runtime::Low approx. 197 minutes; high approx. 70 minutes|Amplitude::6mm|Stall force::10kg|Noise level::55dB|Motor::Brushless motor|Smart timer::15 minutes|Massage heads::Ball, bullet, U-shaped, wedge, flat|Application area::Full body, including independent back massage|Package includes::Main device, charging cable, user manual, warranty card'
+  endcase
+  assign specs = specs_data | split: '|'
+%}
+
+{% if specs_data != blank %}
+  <section class="product-specs">
+    <div class="product-page-shell">
+      <header class="product-specs__heading">
+        <p class="product-kicker">Technical specifications</p>
+        <h2>{{ model }} technical details.</h2>
+        <p>Confirmed product data is organized here for quick comparison and ongoing maintenance.</p>
+      </header>
+      <dl class="product-specs__grid">
+        {% for spec in specs %}
+          {% assign parts = spec | split: '::' %}
+          <div>
+            <dt>{{ parts[0] }}</dt>
+            <dd>{{ parts[1] }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MONAURO specifications",
+  "settings": []
+}
+{% endschema %}
