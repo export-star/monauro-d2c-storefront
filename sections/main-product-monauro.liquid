@@ -113,6 +113,7 @@
           <button class="btn btn-primary product-purchase__add" type="submit" name="add" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
           <button class="btn btn-secondary product-purchase__buy-now" type="button" data-buy-now {% unless current_variant.available %}disabled{% endunless %}>Buy it now</button>
         </div>
+        <p class="product-purchase__status" role="status" aria-live="polite" data-purchase-status hidden></p>
       </div>
     {% endform %}
   </div>

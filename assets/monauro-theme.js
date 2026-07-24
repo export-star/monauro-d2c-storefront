@@ -14,6 +14,7 @@
     const addButton = form.querySelector('[data-add-to-cart]');
     const buyButton = form.querySelector('[data-buy-now]');
     const quantityInput = form.querySelector('input[name="quantity"]');
+    const purchaseStatus = form.querySelector('[data-purchase-status]');
     const variantButtons = Array.from(form.querySelectorAll('[data-variant-button]'));
 
     const setAvailability = (available) => {
@@ -24,6 +25,52 @@
       if (buyButton) {
         buyButton.disabled = !available;
         buyButton.textContent = available ? 'Buy it now' : 'Sold out';
+      }
+    };
+
+    const root = window.Shopify?.routes?.root || '/';
+    const setPurchaseStatus = (message, isError = false) => {
+      if (!purchaseStatus) return;
+      purchaseStatus.hidden = !message;
+      purchaseStatus.textContent = message;
+      purchaseStatus.classList.toggle('is-error', isError);
+    };
+    const selectedQuantity = () => Math.max(1, Number.parseInt(quantityInput?.value || '1', 10) || 1);
+    const addSelectedVariant = async () => {
+      if (!variantInput?.value) throw new Error('No variant selected');
+      const response = await fetch(`${root}cart/add.js`, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({
+          items: [{ id: variantInput.value, quantity: selectedQuantity() }]
+        })
+      });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.description || `Cart request failed: ${response.status}`);
+      }
+      return response.json();
+    };
+    const navigateTop = (url) => {
+      try {
+        window.top.location.assign(url);
+      } catch (error) {
+        window.location.assign(url);
+      }
+    };
+    const setPurchaseBusy = (busy, action = 'cart') => {
+      if (addButton) {
+        addButton.disabled = busy;
+        addButton.textContent = busy && action === 'cart' ? 'Adding...' : 'Add to cart';
+      }
+      if (buyButton) {
+        buyButton.disabled = busy;
+        buyButton.textContent = busy && action === 'checkout' ? 'Opening checkout...' : 'Buy it now';
       }
     };
 
@@ -40,16 +87,35 @@
         if (priceTarget && button.dataset.variantPrice) priceTarget.textContent = button.dataset.variantPrice;
         if (labelTarget && button.dataset.variantTitle) labelTarget.textContent = button.dataset.variantTitle;
         setAvailability(button.dataset.variantAvailable === 'true');
+        setPurchaseStatus('');
       });
     });
 
-    buyButton?.addEventListener('click', () => {
+    form.addEventListener('submit', async (event) => {
+      if (!variantInput?.value || addButton?.disabled) return;
+      event.preventDefault();
+      setPurchaseBusy(true, 'cart');
+      setPurchaseStatus('Adding this item to your cart...');
+      try {
+        await addSelectedVariant();
+        navigateTop(`${root}cart`);
+      } catch (error) {
+        setPurchaseBusy(false);
+        setPurchaseStatus(error.message || 'This item could not be added. Please try again.', true);
+      }
+    });
+
+    buyButton?.addEventListener('click', async () => {
       if (!variantInput?.value || buyButton.disabled) return;
-      const quantity = Math.max(1, Number.parseInt(quantityInput?.value || '1', 10) || 1);
-      const root = window.Shopify?.routes?.root || '/';
-      buyButton.disabled = true;
-      buyButton.textContent = 'Opening checkout...';
-      window.location.assign(`${root}cart/${encodeURIComponent(variantInput.value)}:${quantity}?checkout`);
+      setPurchaseBusy(true, 'checkout');
+      setPurchaseStatus('Adding this item and opening secure checkout...');
+      try {
+        await addSelectedVariant();
+        navigateTop(`${root}checkout`);
+      } catch (error) {
+        setPurchaseBusy(false);
+        setPurchaseStatus(error.message || 'Secure checkout could not be opened. Please try again.', true);
+      }
     });
 
     if (variantInput?.tagName === 'SELECT') {
