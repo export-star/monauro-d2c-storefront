@@ -1,18 +1,11 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
-import { mainNavigation, utilityNavigation } from "@/data/navigation";
-
-const policyLinks = [
-  { label: "Shipping & Returns", href: "/shipping-returns" },
-  { label: "Warranty", href: "/warranty" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms & Disclaimer", href: "/terms-disclaimer" }
-];
+import { mainNavigation } from "@/data/navigation";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-black/10 bg-white text-monauro-ink">
-      <div className="grid page-shell gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_0.85fr_0.8fr_1fr]">
+      <div className="grid page-shell gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_1fr]">
         <div>
           <Image
             className="h-10 w-auto object-contain"
@@ -29,26 +22,6 @@ export function SiteFooter() {
           <p className="font-semibold">Explore</p>
           <div className="mt-4 grid gap-2 text-sm text-neutral-600">
             {mainNavigation.map((item) => (
-              <Link className="transition hover:text-monauro-orange" href={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Company & Help</p>
-          <div className="mt-4 grid gap-2 text-sm text-neutral-600">
-            {utilityNavigation.map((item) => (
-              <Link className="transition hover:text-monauro-orange" href={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Policies</p>
-          <div className="mt-4 grid gap-2 text-sm text-neutral-600">
-            {policyLinks.map((item) => (
               <Link className="transition hover:text-monauro-orange" href={item.href} key={item.href}>
                 {item.label}
               </Link>
