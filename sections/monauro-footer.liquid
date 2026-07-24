@@ -1,0 +1,28 @@
+﻿<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <img src="{{ 'monauro-logo-horizontal.png' | asset_url }}" alt="MONAURO" width="128" height="72">
+      <p>{{ section.settings.description }}</p>
+    </div>
+    <div>
+      <strong>Explore</strong>
+      <div class="footer-links">
+        <a href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a href="{{ routes.root_url }}#product-matrix">Product Matrix</a>
+        <a href="{{ routes.root_url }}#body-signals">Recovery Signals</a>
+      </div>
+    </div>
+    <div>
+      <strong>Compliance note</strong>
+      <p>MONAURO content supports education and product discovery. It should not replace professional medical advice.</p>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "MONAURO footer",
+  "settings": [
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Recovery technology for short, body-area routines across eyes, legs, back, and everyday tension." }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,29 @@
+﻿<div class="top-bar">{{ section.settings.announcement }}</div>
+<header class="site-header">
+  <div class="header-inner page-shell">
+    <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
+      <img src="{{ 'monauro-logo-mark.png' | asset_url }}" alt="" width="32" height="32">
+      <span>MONAURO</span>
+    </a>
+    <nav class="header-nav" data-header-nav aria-label="Main navigation">
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="{{ routes.root_url }}#recovery-solutions">Recovery Solutions</a>
+      <a href="{{ routes.root_url }}">Library</a>
+      <a href="{{ routes.root_url }}">Professionals</a>
+    </nav>
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}">Search</a>
+      <a href="{{ routes.cart_url }}">Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
+      <a class="btn btn-primary" href="{{ routes.root_url }}#product-matrix">Find Your Recovery</a>
+    </div>
+    <button class="btn btn-outline menu-toggle" type="button" data-menu-toggle>Menu</button>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "MONAURO header",
+  "settings": [
+    { "type": "text", "id": "announcement", "label": "Announcement", "default": "Free shipping over $99" }
+  ]
+}
+{% endschema %}

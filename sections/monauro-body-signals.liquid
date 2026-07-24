@@ -1,0 +1,24 @@
+﻿<section class="section signal-section" id="body-signals">
+  <div class="section-header">
+    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="signal-grid">
+    <article class="signal-card"><img src="{{ 'signal-eye-strain.png' | asset_url }}" alt="Eye strain illustration"><div class="signal-card-body"><h3>Screen fatigue</h3><p>For evening routines after long periods of screen focus.</p></div></article>
+    <article class="signal-card"><img src="{{ 'signal-leg-fatigue.png' | asset_url }}" alt="Leg fatigue illustration"><div class="signal-card-body"><h3>Heavy legs</h3><p>For sitting, standing, travel, and daily leg tension.</p></div></article>
+    <article class="signal-card"><img src="{{ 'signal-calf-tightness.png' | asset_url }}" alt="Calf tightness illustration"><div class="signal-card-body"><h3>Calf tightness</h3><p>For a short routine around the lower leg after movement.</p></div></article>
+    <article class="signal-card"><img src="{{ 'signal-back-tension.png' | asset_url }}" alt="Back tension illustration"><div class="signal-card-body"><h3>Back tension</h3><p>For targeted support when your back needs independent reach.</p></div></article>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "MONAURO body signals",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Start from body signal" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose by what your body is telling you." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "A practical path for shoppers who know the feeling first and want the right device second." }
+  ],
+  "presets": [{ "name": "MONAURO body signals" }]
+}
+{% endschema %}

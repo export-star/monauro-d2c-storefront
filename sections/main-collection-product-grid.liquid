@@ -1,0 +1,4 @@
+﻿<section class="section"><div class="section-header"><h1>{{ collection.title | default: 'Products' }}</h1><p>{{ collection.description | strip_html }}</p></div><div class="product-grid">{% for product in collection.products %}<a class="product-card" href="{{ product.url }}"><div class="product-card-media">{% if product.featured_image %}{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}{% endif %}</div><h3>{{ product.title }}</h3><p>{{ product.price | money }}</p></a>{% else %}<p>No products found.</p>{% endfor %}</div></section>
+{% schema %}
+{ "name": "Main collection" }
+{% endschema %}

@@ -1,0 +1,42 @@
+﻿<section class="section" id="product-matrix">
+  <div class="section-header">
+    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="product-grid">
+    {% assign card_handles = section.settings.handles | split: ',' %}
+    {% assign titles = 'RecoveryAir Calf Pro|RecoveryAir Leg Elite|RelaxiWave Eye Mask|Back Massage Gun' | split: '|' %}
+    {% assign images = 'home-calf-pro.png|home-leg-elite.png|home-eye-mask.png|home-back-massage-gun.png' | split: '|' %}
+    {% assign copy = 'Reset heavy, tight calves with air compression, heat, and a 15-minute recovery routine.|EMS massage, heated comfort, and air-bag compression support for leg recovery routines.|A 15-minute soothing massage routine for tired eyes.|Independent back massage support without needing another person.' | split: '|' %}
+    {% assign tags = 'Heavy Legs,Calf Tightness|Full Leg Recovery,Travel Recovery|Digital Eye Strain,Desk Fatigue|Back Tension,Post-Workout Recovery' | split: '|' %}
+    {% for title in titles %}
+      {% assign idx = forloop.index0 %}
+      {% assign handle = card_handles[idx] | strip %}
+      {% assign product_item = all_products[handle] %}
+      {% assign card_tags = tags[idx] | split: ',' %}
+      <a class="product-card" href="{% if product_item != blank %}{{ product_item.url }}{% else %}/products/{{ handle }}{% endif %}">
+        <div class="product-card-media">
+          <img src="{{ images[idx] | asset_url }}" alt="{{ title | escape }}">
+        </div>
+        <h3>{% if product_item != blank %}{{ product_item.title }}{% else %}{{ title }}{% endif %}</h3>
+        <p>{{ copy[idx] }}</p>
+        <div class="tag-row">
+          {% for tag in card_tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "MONAURO product matrix",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Product Matrix" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Four devices, one recovery logic." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Each product is positioned by body area and daily routine, so shoppers can compare quickly without overclaiming outcomes." },
+    { "type": "text", "id": "handles", "label": "Product handles, comma separated", "default": "recoveryair-calf-pro,monauro-recoveryair-leg-elite,relaxiwave-eye-mask,back-massage-gun" }
+  ],
+  "presets": [{ "name": "MONAURO product matrix" }]
+}
+{% endschema %}

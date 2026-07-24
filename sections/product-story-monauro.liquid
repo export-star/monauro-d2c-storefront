@@ -1,0 +1,30 @@
+﻿<section class="product-story">
+  <div>
+    <p class="eyebrow">Feature map</p>
+    {% case product.handle %}
+      {% when 'recoveryair-calf-pro' %}<h2>Mode, heat, battery, and travel details in one visual flow.</h2><p>Tap each title to review the confirmed routine details without turning product claims into medical promises.</p>
+      {% when 'monauro-recoveryair-leg-elite' %}<h2>Leg recovery support arranged by confirmed functions.</h2><p>EMS massage, heated comfort, and air-bag compression stay separated so the page is easier to maintain.</p>
+      {% when 'relaxiwave-eye-mask' %}<h2>A quiet eye routine for screen-heavy days.</h2><p>Heat, vibration massage, and white-noise support are framed as a short wellness session.</p>
+      {% when 'back-massage-gun' %}<h2>Target, attach, ease.</h2><p>Back Massage Gun is positioned around independent reach and standard massage-gun use cases.</p>
+      {% else %}<h2>Product details from the Shopify product record.</h2><p>{{ product.description | strip_html | truncate: 180 }}</p>
+    {% endcase %}
+  </div>
+  <div class="story-stack">
+    {% case product.handle %}
+      {% when 'recoveryair-calf-pro' %}
+        <details class="story-card" open><summary>Relax and Deep Modes</summary><p>Level 1 supports a relax routine. Level 2 supports a deeper massage routine. The manual describes rhythmic inflation and deflation across upper, middle, lower, and all zones.</p></details>
+        <details class="story-card"><summary>Controlled Heat Therapy</summary><p>Confirmed heat levels are 42℃ and 45℃. People with reduced heat sensitivity should use heat cautiously.</p></details>
+        <details class="story-card" open><summary>Fast Recovery</summary><p>Compression and heat are positioned for post-exercise calf discomfort and for people who sit or stand for long periods.</p></details>
+        <details class="story-card"><summary>Precision Target Trigger points</summary><p>The airbag structure is arranged to support calf tension relief, flexibility, ankle mobility, and short repeatable routines.</p></details>
+      {% when 'monauro-recoveryair-leg-elite' %}
+        <details class="story-card" open><summary>EMS Massage</summary><p>Uses EMS massage as part of a leg-focused recovery routine.</p></details><details class="story-card"><summary>Heated Comfort</summary><p>Includes heat support for leg relaxation routines.</p></details><details class="story-card"><summary>Air Compression</summary><p>Uses air-bag compression for leg recovery support.</p></details>
+      {% when 'relaxiwave-eye-mask' %}
+        <details class="story-card" open><summary>15-minute soothing massage</summary><p>A short routine for tired eyes after screen-heavy work.</p></details><details class="story-card"><summary>Heat and vibration</summary><p>Uses vibration massage and heated eye support.</p></details><details class="story-card"><summary>White noise</summary><p>Built-in white noise supports a calmer session.</p></details>
+      {% when 'back-massage-gun' %}
+        <details class="story-card" open><summary>Independent back reach</summary><p>Designed so shoppers can massage the back without relying on another person.</p></details><details class="story-card"><summary>Multi-area use</summary><p>Supports common massage-gun routines for back, shoulder, waist, hip, thigh, calf, arm, palm, and sole use cases.</p></details><details class="story-card"><summary>Everyday tension support</summary><p>Positioned as a wellness device for muscle tension and daily recovery routines.</p></details>
+    {% endcase %}
+  </div>
+</section>
+{% schema %}
+{ "name": "MONAURO product story" }
+{% endschema %}

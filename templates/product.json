@@ -1,0 +1,8 @@
+﻿{
+  "sections": {
+    "main": { "type": "main-product-monauro" },
+    "story": { "type": "product-story-monauro" },
+    "trust": { "type": "monauro-trust" }
+  },
+  "order": ["main", "story", "trust"]
+}

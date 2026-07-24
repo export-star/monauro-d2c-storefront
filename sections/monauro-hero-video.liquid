@@ -1,0 +1,22 @@
+﻿<section class="hero">
+  <video autoplay muted loop playsinline preload="metadata" poster="{{ 'home-calf-pro.png' | asset_url }}">
+    <source src="{{ 'home-hero-01.mp4' | asset_url }}" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.text }}</p>
+    <p><a class="btn btn-outline" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a></p>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "MONAURO hero video",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Recovery starts here." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Short wellness routines for heavy legs, screen fatigue, and everyday body tension." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+    { "type": "url", "id": "button_link", "label": "Button link", "default": "/collections/all" }
+  ],
+  "presets": [{ "name": "MONAURO hero video" }]
+}
+{% endschema %}
