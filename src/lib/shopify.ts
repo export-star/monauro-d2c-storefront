@@ -108,7 +108,7 @@ export function buildShopifyProductUrl(pointer: ShopifyProductPointer) {
     return "#shopify-handle-to-confirm";
   }
 
-  return `/products/${pointer.handle}`;
+  return `https://monauro.com/products/${pointer.handle}`;
 }
 
 function normalizeOption(value: string) {

@@ -1,6 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
+import { buildShopifyProductUrl } from "@/lib/shopify";
 import type { Product } from "@/types/product";
 
 type ProductPurchasePanelProps = {
@@ -40,39 +41,15 @@ export function ProductPurchasePanel({ product, variant = "default" }: ProductPu
   const [selectedColor, setSelectedColor] = useState(colorOptions[0] ?? "Default");
   const [quantity, setQuantity] = useState(1);
   const [isTestingCart, setIsTestingCart] = useState(false);
-  const [cartMessage, setCartMessage] = useState("Added to cart for this storefront preview. Live checkout will follow the final Shopify connection.");
+  const [cartMessage, setCartMessage] = useState("Buttons now open the confirmed Shopify product page. Final direct cart checkout can be connected after Storefront API access is enabled.");
+  const shopifyProductUrl = useMemo(() => buildShopifyProductUrl({ handle: product.shopifyHandle, status: "connected" }), [product.shopifyHandle]);
 
-  async function testShopifyCart(action: "cart" | "buy") {
-    setIsTestingCart(true);
-    setCartMessage("Testing Shopify draft connection...");
-
-    try {
-      const response = await fetch("/api/shopify/cart", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ productSlug: product.slug, color: selectedColor, quantity })
-      });
-      const payload = (await response.json()) as ShopifyCartResponse;
-
-      if (!payload.ok || !payload.result) {
-        setCartMessage(payload.message ?? "Shopify draft test failed.");
-        return;
-      }
-
-      const result = payload.result;
-      const baseMessage = `${result.message} Matched ${result.productTitle} / ${result.variantTitle}.`;
-      setCartMessage(baseMessage);
-
-      if (action === "buy" && result.checkoutUrl && result.canRedirect) {
-        window.location.href = result.checkoutUrl;
-      }
-    } catch (error) {
-      setCartMessage(error instanceof Error ? error.message : "Shopify draft test failed.");
-    } finally {
-      setIsTestingCart(false);
-    }
+  function testShopifyCart(action: "cart" | "buy") {
+    const url = new URL(shopifyProductUrl);
+    url.searchParams.set("color", selectedColor);
+    url.searchParams.set("quantity", String(quantity));
+    url.searchParams.set("source", action === "buy" ? "buy-now" : "add-to-cart");
+    window.location.href = url.toString();
   }
   if (variant === "overlay") {
     return (

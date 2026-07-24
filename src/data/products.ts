@@ -1,4 +1,4 @@
-import type { Product } from "@/types/product";
+﻿import type { Product } from "@/types/product";
 
 export const products: Product[] = [
   {
@@ -146,7 +146,7 @@ export const products: Product[] = [
     description: "A leg-focused MONAURO wellness device for users who want EMS massage, heated comfort, and air-compression support in one recovery routine.",
     price: "$179.99",
     priceStatus: "confirmed",
-    shopifyHandle: "recoveryair-leg-elite",
+    shopifyHandle: "monauro-recoveryair-leg-elite",
     imageAlt: "RecoveryAir Leg Elite product image",
     images: [
       {
