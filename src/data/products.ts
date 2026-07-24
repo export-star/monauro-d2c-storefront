@@ -1,4 +1,4 @@
-﻿import type { Product } from "@/types/product";
+import type { Product } from "@/types/product";
 
 export const products: Product[] = [
   {
@@ -224,38 +224,158 @@ export const products: Product[] = [
     imageAlt: "RelaxiWave Eye Mask product image placeholder",
     images: [
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-purple-kit.jpg",
-        alt: "RelaxiWave Eye Mask purple product with packaging",
+        src: "/videos/me01-product-hero.mp4",
+        alt: "RelaxiWave Eye Mask product video",
         role: "hero"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-main-01.png",
-        alt: "RelaxiWave Eye Mask product image 1",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-00.jpg",
+        alt: "RelaxiWave Eye Mask main product image 00",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-main-02.png",
-        alt: "RelaxiWave Eye Mask product image 2",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-01.png",
+        alt: "RelaxiWave Eye Mask main product image 01",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-main-03.png",
-        alt: "RelaxiWave Eye Mask product image 3",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-02.png",
+        alt: "RelaxiWave Eye Mask main product image 02",
         role: "gallery"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-detail-01.png",
-        alt: "RelaxiWave Eye Mask detail visual 1",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-03.png",
+        alt: "RelaxiWave Eye Mask main product image 03",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-05.jpg",
+        alt: "RelaxiWave Eye Mask main product image 05",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-07.jpg",
+        alt: "RelaxiWave Eye Mask main product image 07",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-08.jpg",
+        alt: "RelaxiWave Eye Mask main product image 08",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-09.jpg",
+        alt: "RelaxiWave Eye Mask main product image 09",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-10.jpg",
+        alt: "RelaxiWave Eye Mask main product image 10",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-11.jpg",
+        alt: "RelaxiWave Eye Mask main product image 11",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-12.png",
+        alt: "RelaxiWave Eye Mask main product image 12",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-13.png",
+        alt: "RelaxiWave Eye Mask main product image 13",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-14.png",
+        alt: "RelaxiWave Eye Mask main product image 14",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-15.png",
+        alt: "RelaxiWave Eye Mask main product image 15",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-16.png",
+        alt: "RelaxiWave Eye Mask main product image 16",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-17.png",
+        alt: "RelaxiWave Eye Mask main product image 17",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-18.png",
+        alt: "RelaxiWave Eye Mask main product image 18",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-19.png",
+        alt: "RelaxiWave Eye Mask main product image 19",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-main-20.png",
+        alt: "RelaxiWave Eye Mask main product image 20",
+        role: "gallery"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-01-2.png",
+        alt: "RelaxiWave Eye Mask detail visual 01 alternate",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-detail-02.png",
-        alt: "RelaxiWave Eye Mask detail visual 2",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-01.png",
+        alt: "RelaxiWave Eye Mask detail visual 01",
         role: "detail"
       },
       {
-        src: "/images/products/relaxiwave-eye-mask/eye-mask-detail-03.png",
-        alt: "RelaxiWave Eye Mask detail visual 3",
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-02.png",
+        alt: "RelaxiWave Eye Mask detail visual 02",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-03.png",
+        alt: "RelaxiWave Eye Mask detail visual 03",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-04.png",
+        alt: "RelaxiWave Eye Mask detail visual 04",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-05.png",
+        alt: "RelaxiWave Eye Mask detail visual 05",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-06.png",
+        alt: "RelaxiWave Eye Mask detail visual 06",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-07.png",
+        alt: "RelaxiWave Eye Mask detail visual 07",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-08.png",
+        alt: "RelaxiWave Eye Mask detail visual 08",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-09.png",
+        alt: "RelaxiWave Eye Mask detail visual 09",
+        role: "detail"
+      },
+      {
+        src: "/images/products/relaxiwave-eye-mask/me01-refresh/me01-detail-11.png",
+        alt: "RelaxiWave Eye Mask detail visual 11",
         role: "detail"
       }
     ],

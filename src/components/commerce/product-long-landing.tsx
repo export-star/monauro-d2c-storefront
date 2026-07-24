@@ -23,6 +23,8 @@ type ProductLongLandingProps = {
   relatedProducts: Product[];
 };
 
+const hideRoutineStepProductSlugs = new Set(["relaxiwave-eye-mask", "back-massage-gun"]);
+
 const technicalSpecLabels = [
   "SKU / Model",
   "Price",
@@ -66,6 +68,7 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
   const coreFunctions = getSpecValue(product, "Core functions") ?? product.features.map((feature) => feature.title).join(", ");
   const colorCount = getColorCount(product);
   const confirmedSpecs = product.specs.filter((spec) => technicalSpecLabels.includes(spec.label));
+  const showRoutineSteps = !hideRoutineStepProductSlugs.has(product.slug);
 
   return (
     <main>
@@ -110,22 +113,24 @@ export function ProductLongLanding({ product, pageCopy, relatedProducts }: Produ
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="page-shell">
-          <div className="grid gap-5 md:grid-cols-3">
-            {(mainImages.length > 1 ? mainImages.slice(1, 4) : mainImages).map((image, index) => (
-              <article className="group relative min-h-[420px] overflow-hidden rounded-monauro bg-[#f7f7f4]" key={image.src}>
-                <Image className="object-contain p-5 transition duration-500 group-hover:scale-[1.03]" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 30vw, 100vw" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 to-transparent p-6 text-white">
-                  <p className="text-xs font-semibold uppercase text-white/70">0{index + 1} / routine</p>
-                  <h3 className="mt-3 text-2xl font-semibold">{pageCopy.routineSteps[index]?.[0] ?? product.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/78">{pageCopy.routineSteps[index]?.[1] ?? product.tagline}</p>
-                </div>
-              </article>
-            ))}
+      {showRoutineSteps ? (
+        <section className="bg-white py-16">
+          <div className="page-shell">
+            <div className="grid gap-5 md:grid-cols-3">
+              {(mainImages.length > 1 ? mainImages.slice(1, 4) : mainImages).map((image, index) => (
+                <article className="group relative min-h-[420px] overflow-hidden rounded-monauro bg-[#f7f7f4]" key={image.src}>
+                  <Image className="object-contain p-5 transition duration-500 group-hover:scale-[1.03]" src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 30vw, 100vw" />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 to-transparent p-6 text-white">
+                    <p className="text-xs font-semibold uppercase text-white/70">0{index + 1} / routine</p>
+                    <h3 className="mt-3 text-2xl font-semibold">{pageCopy.routineSteps[index]?.[0] ?? product.name}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/78">{pageCopy.routineSteps[index]?.[1] ?? product.tagline}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="bg-[#f7f7f4] py-16 lg:py-20">
         <div className="page-shell">
