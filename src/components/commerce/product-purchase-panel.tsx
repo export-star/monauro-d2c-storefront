@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { buildShopifyProductUrl } from "@/lib/shopify";
+import { shopifyVariantIdsByProduct } from "@/data/shopify-variants";
 import type { Product } from "@/types/product";
 
 type ProductPurchasePanelProps = {
@@ -41,15 +42,26 @@ export function ProductPurchasePanel({ product, variant = "default" }: ProductPu
   const [selectedColor, setSelectedColor] = useState(colorOptions[0] ?? "Default");
   const [quantity, setQuantity] = useState(1);
   const [isTestingCart, setIsTestingCart] = useState(false);
-  const [cartMessage, setCartMessage] = useState("Buttons now open the confirmed Shopify product page. Final direct cart checkout can be connected after Storefront API access is enabled.");
+  const [cartMessage, setCartMessage] = useState("Choose a color and quantity, then continue through Shopify checkout.");
   const shopifyProductUrl = useMemo(() => buildShopifyProductUrl({ handle: product.shopifyHandle, status: "connected" }), [product.shopifyHandle]);
 
   function testShopifyCart(action: "cart" | "buy") {
-    const url = new URL(shopifyProductUrl);
-    url.searchParams.set("color", selectedColor);
-    url.searchParams.set("quantity", String(quantity));
-    url.searchParams.set("source", action === "buy" ? "buy-now" : "add-to-cart");
-    window.location.href = url.toString();
+    const variantId = shopifyVariantIdsByProduct[product.shopifyHandle]?.[selectedColor];
+
+    if (variantId) {
+      const cartUrl = new URL(`https://monauro.com/cart/${variantId}:${quantity}`);
+      if (action === "buy") {
+        cartUrl.searchParams.set("checkout", "1");
+      }
+      window.location.href = cartUrl.toString();
+      return;
+    }
+
+    const productUrl = new URL(shopifyProductUrl);
+    productUrl.searchParams.set("color", selectedColor);
+    productUrl.searchParams.set("quantity", String(quantity));
+    productUrl.searchParams.set("source", action === "buy" ? "buy-now" : "add-to-cart");
+    window.location.href = productUrl.toString();
   }
   if (variant === "overlay") {
     return (
