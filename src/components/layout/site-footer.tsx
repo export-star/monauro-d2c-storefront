@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { mainNavigation } from "@/data/navigation";
 
@@ -8,11 +8,11 @@ export function SiteFooter() {
       <div className="grid page-shell gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_1fr]">
         <div>
           <Image
-            className="h-10 w-auto object-contain"
+            className="h-7 w-auto object-contain"
             src="/images/brand/monauro-logo-horizontal.png"
             alt="MONAURO"
-            width={128}
-            height={72}
+            width={268}
+            height={35}
           />
           <p className="mt-4 max-w-md text-sm leading-6 text-neutral-600">
             Recovery technology for short, body-area routines across eyes, legs, back, and everyday tension.

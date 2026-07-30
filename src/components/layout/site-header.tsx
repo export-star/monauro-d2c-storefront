@@ -25,16 +25,23 @@ export function SiteHeader() {
         Free shipping to Europe, the United States, and Southeast Asia. 30-day returns and 365-day warranty.
       </div>
       <div className="flex page-shell items-center justify-between gap-5 py-4">
-        <Link className="flex shrink-0 items-center gap-2" href="/" aria-label="MONAURO home">
+        <Link className="flex shrink-0 items-center" href="/" aria-label="MONAURO home">
           <Image
-            className="h-8 w-8 rounded-full object-contain"
+            className="hidden h-6 w-auto object-contain sm:block"
+            src="/images/brand/monauro-logo-horizontal.png"
+            alt="MONAURO"
+            width={268}
+            height={35}
+            priority
+          />
+          <Image
+            className="h-8 w-8 object-contain sm:hidden"
             src="/images/brand/monauro-logo-mark.png"
-            alt=""
+            alt="MONAURO"
             width={32}
             height={32}
             priority
           />
-          <span className="text-lg font-black tracking-normal">MONAURO</span>
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-5 text-sm font-medium text-neutral-700 lg:flex" aria-label="Main navigation">
