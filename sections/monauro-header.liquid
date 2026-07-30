@@ -2,8 +2,10 @@
 <header class="site-header">
   <div class="header-inner page-shell">
     <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
-      <img src="{{ 'monauro-logo-mark.png' | asset_url }}" alt="" width="32" height="32">
-      <span>MONAURO</span>
+      <picture>
+        <source media="(max-width: 980px)" srcset="{{ 'monauro-logo-mark.png' | asset_url }}">
+        <img src="{{ 'monauro-logo-horizontal.png' | asset_url }}" alt="MONAURO" width="268" height="35">
+      </picture>
     </a>
     <nav class="header-nav" data-header-nav aria-label="Main navigation">
       <a href="{{ routes.all_products_collection_url }}">Shop</a>

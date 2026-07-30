@@ -7,7 +7,7 @@
     <title>{{ page_title }}{% if current_tags %} - {{ current_tags | join: ', ' }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}</title>
     {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
     {% if template.name == 'index' %}
-      {{ 'home-hero-poster.jpg' | asset_url | preload_tag: as: 'image' }}
+      {{ 'home-calf-pro.png' | asset_url | preload_tag: as: 'image' }}
     {% endif %}
     {{ content_for_header }}
     {{ 'monauro-theme.css' | asset_url | stylesheet_tag }}
