@@ -1,4 +1,30 @@
 (() => {
+  document.querySelectorAll('[data-hero-video]').forEach((video) => {
+    const saveData = navigator.connection?.saveData === true;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (saveData || reduceMotion) return;
+
+    const loadVideo = () => {
+      video.querySelectorAll('source[data-src]').forEach((source) => {
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+      });
+      video.addEventListener('canplay', () => video.classList.add('is-ready'), { once: true });
+      video.load();
+      video.play().catch(() => {});
+    };
+    const scheduleVideo = () => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadVideo, { timeout: 1800 });
+      } else {
+        window.setTimeout(loadVideo, 900);
+      }
+    };
+
+    if (document.readyState === 'complete') scheduleVideo();
+    else window.addEventListener('load', scheduleVideo, { once: true });
+  });
+
   document.querySelectorAll('[data-menu-toggle]').forEach((button) => {
     button.addEventListener('click', () => {
       const nav = document.querySelector('[data-header-nav]');
