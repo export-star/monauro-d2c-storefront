@@ -11,6 +11,13 @@
     {% endif %}
     {{ content_for_header }}
     {{ 'monauro-theme.css' | asset_url | stylesheet_tag }}
+    {% if request.page_type == 'product' and product.handle == 'recoveryair-calf-pro' %}
+      <style>
+        [id*="__pf-f4d6732a"] {
+          display: none !important;
+        }
+      </style>
+    {% endif %}
   </head>
   <body class="template-{{ template.name | handle }}">
     {% section 'monauro-header' %}
