@@ -9,7 +9,11 @@
         source.src = source.dataset.src;
         source.removeAttribute('data-src');
       });
-      video.addEventListener('canplay', () => video.classList.add('is-ready'), { once: true });
+      video.addEventListener('playing', () => {
+        video.classList.add('is-ready');
+        const poster = video.parentElement?.querySelector('.hero-poster');
+        if (poster) poster.hidden = true;
+      }, { once: true });
       video.load();
       video.play().catch(() => {});
     };
